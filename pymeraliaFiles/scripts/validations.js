@@ -1,1 +1,3 @@
-console.log('hola, voy a validar')
+export function lengthOk(length) {
+    console.log(length)
+}
