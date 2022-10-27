@@ -5,6 +5,7 @@ function notEmpty(valor) {
   }
 }
 
+//Validació per a llargaria minima-màxima del camp
 function length(string, minLength, maxLength) {
   if (maxLength)
     return string.length >= minLength && string.length <= maxLength
@@ -12,11 +13,13 @@ function length(string, minLength, maxLength) {
     return string.length >= minLength
 }
 
+//Validació per a email
 function email(string) {
   let regex = /^\w+@\w+\.\w+$/
   return regex.test(string.trim())
 }
 
+//Validació per a que no es puguin introduir scripts
 function caracters(valor) {
   var iChars = "<>";
 
@@ -27,11 +30,13 @@ function caracters(valor) {
   }
 }
 
+//Validació per a acceptar URL
 function isValidUrl(url){
   let pattern = /^(http|https)\:\/\/[a-z0-9\.-]+\.[a-z]{2,4}/gi;
   return pattern.test(url.trim())
 }
 
+//Validació per a l'extensió d'una imatge i el tamany màxim (REVISAR)
 function extensio(){
 
 	// this.files[0].size recupera el tamany de l'arxiu
