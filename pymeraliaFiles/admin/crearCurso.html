@@ -13,6 +13,7 @@
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <link rel="stylesheet" href="../css/main.css"><!--header, footer-->
     <link href="../css/estiloCursos.css" rel="stylesheet" />
+    <script type="module" src="../validacions/main.js"></script>
     <title>Crear Curso</title>
 </head>
 
@@ -95,12 +96,12 @@
             <form class="formulario-crear-curso">
                 <div class="form-group campo-formulario">
                     <label for="exampleInputEmail1">Nombre del Curso</label>
-                    <input type="text" class="form-control" id="nombre-del-curso">
+                    <input type="text" class="form-control" id="nombre-del-curso" required>
                 </div>
 
                 <div class="form-group campo-formulario">
                     <label for="exampleInputPassword1">Descripción del Curso</label>
-                    <textarea class="form-control" id="descripcion-del-curso"></textarea>
+                    <textarea class="form-control" id="descripcion-del-curso" required></textarea>
                 </div>
 
                 <div class="form-group campo-formulario">
@@ -168,8 +169,6 @@
           </div>
       </div>
   </footer><!--footer-->
-
-    <script type="module" src="../validacions/main.js"></script>
 <!--<script type="module">
     import * as validate from "../validacions/validacions.js"
     function prov(){ 
