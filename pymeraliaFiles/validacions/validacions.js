@@ -1,28 +1,72 @@
 //Validació per a que el camp no estigui buit.
 function notEmpty(valor) {
-    if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
+  if (valor == null || valor.length == 0 || /^\s+$/.test(valor)) {
+    return false;
+  }
+}
+
+function length(string, minLength, maxLength) {
+  if (maxLength)
+    return string.length >= minLength && string.length <= maxLength
+  else
+    return string.length >= minLength
+}
+
+function email(string) {
+  let regex = /^\w+@\w+\.\w+$/
+  return regex.test(string.trim())
+}
+
+function caracters(valor) {
+  var iChars = "<>";
+
+  for (var i = 0; i < valor; i++) {
+    if (iChars.indexOf(valor.charAt(i)) != -1) {
       return false;
     }
   }
-  
-  function length(string, minLength, maxLength) {
-    if (maxLength)
-        return string.length >= minLength && string.length <= maxLength
-    else
-        return string.length >= minLength
-  }
-  
-  function email(string) {
-    let regex = /^\w+@\w+\.\w+$/
-    return regex.test(string.trim())
-  }
-  
-  function caracters(valor){
-  var iChars = "<>";
-  
-  for (var i = 0; i < valor; i++) {
-      if (iChars.indexOf(valor.charAt(i)) != -1) {
-          return false;
-      }
-  }
-  }
+}
+
+function isValidUrl(url){
+  let pattern = /^(http|https)\:\/\/[a-z0-9\.-]+\.[a-z]{2,4}/gi;
+  return pattern.test(url.trim())
+}
+
+function extensio(){
+
+	// this.files[0].size recupera el tamany de l'arxiu
+	// alert(this.files[0].size);
+	var fileName = this.files[0].name;
+	var fileSize = this.files[0].size;
+
+	if(fileSize > 3000000){
+		
+    alert('El archivo no debe superar los 3MB');
+		this.value = '';
+		this.files[0].name = '';
+
+	}
+  else{
+
+    //recuperem l'extensió de l'arxiu
+		var ext = fileName.split('.').pop();
+		
+    // Convertim en minuscula perque
+    // l'extensió de l'arxiu pot estar en majuscula
+		ext = ext.toLowerCase();
+    
+		// console.log(ext);
+		switch (ext) {
+			case 'jpg':
+			case 'jpeg':
+			case 'png':
+			case 'pdf': break;
+			default:
+				alert('El archivo no tiene la extensión adecuada');
+				this.value = ''; // reset del valor
+				this.files[0].name = '';
+		}
+	}
+};
+
+// Validació per a contrasenya segura
