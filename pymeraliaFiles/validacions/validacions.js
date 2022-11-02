@@ -43,7 +43,7 @@ function isValidUrl(url){
 }
 
 //Validació per a l'extensió d'una imatge i el tamany màxim (REVISAR)
-function extensio(){
+function extension(){
 
 	// this.files[0].size recupera el tamany de l'arxiu
 	// alert(this.files[0].size);
@@ -78,6 +78,6 @@ function extensio(){
 				this.files[0].name = '';
 		}
 	}
-};
+}
 
 // Validació per a contrasenya segura
