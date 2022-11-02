@@ -5,11 +5,23 @@ function notEmpty(valor) {
   }
 }
 
-function length(string, minLength, maxLength) {
-  if (maxLength)
-    return string.length >= minLength && string.length <= maxLength
-  else
-    return string.length >= minLength
+
+function length(campo, longitudMaxima) {
+  try {
+      if (campo.value.length > (longitudMaxima)){
+        (campo).style.borderColor = "red";
+        document.getElementById("longitud").style.visibility = "visible";
+          return false;
+          
+        }
+      else{
+        (campo).style.borderColor = "green";
+        document.getElementById("longitud").style.visibility = "hidden";
+          return true;  
+        }           
+  } catch (e) {
+      return false;
+  }
 }
 
 function email(string) {
@@ -22,7 +34,14 @@ function caracters(valor) {
 
   for (var i = 0; i < valor; i++) {
     if (iChars.indexOf(valor.charAt(i)) != -1) {
+      (valor).style.borderColor = "red";
+        document.getElementById("caracteres").style.visibility = "visible";
       return false;
+    }
+    else{
+      (valor).style.borderColor = "green";
+        document.getElementById("caracteres").style.visibility = "hidden";
+        return true; 
     }
   }
 }

@@ -1,5 +1,5 @@
-import * as validate from "./validacions.js"
-
 function prov(){ 
-    console.log(validate.length(document.getElementById("nombre-del-curso"),5,12))
+    console.log(caracters(document.getElementById("nombre-del-curso")))
+
+    //console.log(length(document.getElementById("nombre-del-curso"),12))
 }
