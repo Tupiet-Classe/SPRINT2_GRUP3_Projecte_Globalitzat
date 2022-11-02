@@ -5,7 +5,6 @@ function notEmpty(valor) {
   }
 }
 
-//Validació per a llargaria minima-màxima del camp
 function length(string, minLength, maxLength) {
   if (maxLength)
     return string.length >= minLength && string.length <= maxLength
@@ -25,7 +24,14 @@ function caracters(valor) {
 
   for (var i = 0; i < valor; i++) {
     if (iChars.indexOf(valor.charAt(i)) != -1) {
+      (valor).style.borderColor = "red";
+        document.getElementById("caracteres").style.visibility = "visible";
       return false;
+    }
+    else{
+      (valor).style.borderColor = "green";
+        document.getElementById("caracteres").style.visibility = "hidden";
+        return true; 
     }
   }
 }
