@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="../css/main.css"><!--header, footer-->
     <link href="../css/estiloCursos.css" rel="stylesheet" />
     <script type="module" src="../validacions/main.js"></script>
+    <script src="../validacions/validacions.js"></script>
+    <script src="../scripts/cursos.js"></script>
     <title>Crear Curso</title>
 </head>
 
@@ -96,7 +98,7 @@
             <form class="formulario-crear-curso">
                 <div class="form-group campo-formulario">
                     <label for="exampleInputEmail1">Nombre del Curso</label>
-                    <input type="text" class="form-control" id="nombre-del-curso" required>
+                    <input type="text" class="form-control" id="nombre-del-curso" required maxlength="12">
                 </div>
 
                 <div class="form-group campo-formulario">
