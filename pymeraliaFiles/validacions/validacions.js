@@ -75,3 +75,10 @@ function extension(){
 }
 
 // Validació per a contrasenya segura
+const blackList = /<+>/ig
+
+function sanitizeInput() {
+  const inputStr = document.getElementById('inputStr').value;
+  console.log('inputStr', inputStr)
+  document.getElementById('result').innerHTML = inputStr?.replace(blackList, '')
+}
