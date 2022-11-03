@@ -1,5 +1,6 @@
 function prov(){ 
-    console.log(caracters(document.getElementById("nombre-del-curso")))
+    const maxLengthString = 12;
+    console.log(sanitizeInput(document.getElementById("nombre-del-curso")))
 
-    //console.log(length(document.getElementById("nombre-del-curso"),12))
+    console.log(length(document.getElementById("nombre-del-curso"),maxLengthString))
 }
