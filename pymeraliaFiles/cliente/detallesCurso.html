@@ -83,88 +83,63 @@
         <!--Header Menu-->
 
     </header>
-    <nav class="navbar navbar-expand-sm bg-light d-flex justify-content-between">
-        <div class="container-fluid">
-            <ul class="navbar-nav">
 
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <main class="container">
 
+        <h1 id="course-title">La ciberseguridad es importante</h1>
 
-    <main class="m-5">
-        <H1><b>Tema 1</b></H1>
-
-
-
-
-        <video id="video" width="1150" height="400">
-            <source src="../Video/video.mp4">
-
-        </video>
-
-        <div id="outer">
-            <div class="inner"><button id="Button" onClick="playVid()">Play</button></div>
-            <div class="inner"><button id="Button2" onClick="pauseVid()">Pause</button></div>
+        <div class="course-element text">
+            <h4>La ciberseguridad</h4>
+            <p>La seguridad informática, también conocida como ciberseguridad, es el
+                área relacionada con la informática y la telemática que se enfoca en la protección de la
+                infraestructura computacional y todo lo vinculado con la misma, y especialmente la
+                información contenida en una computadora o circulante a través de las redes de
+                computadoras.2 Para ello existen una serie de estándares, protocolos, métodos, reglas,
+                herramientas, y leyes concebidas para minimizar los posibles riesgos a la infraestructura
+                y/o a la propia información. La ciberseguridad comprende software (bases de datos,
+                metadatos, archivos), hardware, redes de computadoras, y todo lo que la organización
+                entienda y valore como un riesgo si la información confidencial involucrada pudiera
+                llegar a manos de otras personas, por ejemplo, convirtiéndose así en información privilegiada.</p>
         </div>
 
-
-        <script>
-            function playVid() {
-                video.play();
-            }
-
-            function pauseVid() {
-                video.pause();
-            } 
-        </script>
-
-
-        <H3>La ciberseguridad</H3>
-        <p>La seguridad informática, también conocida como ciberseguridad,1​ es el
-            área relacionada con la informática y la telemática que se enfoca en la protección de la
-            infraestructura computacional y todo lo vinculado con la misma, y especialmente la
-            información contenida en una computadora o circulante a través de las redes de
-            computadoras.2​ Para ello existen una serie de estándares, protocolos, métodos, reglas,
-            herramientas, y leyes concebidas para minimizar los posibles riesgos a la infraestructura
-            y/o a la propia información. La ciberseguridad comprende software (bases de datos,
-            metadatos, archivos), hardware, redes de computadoras, y todo lo que la organización
-            entienda y valore como un riesgo si la información confidencial involucrada pudiera
-            llegar a manos de otras personas, por ejemplo, convirtiéndose así en información privilegiada.</p>
-
-        <H4>La importancia de la Ciberseguridad</H4>
-        <p>El crecimiento global de las redes y la información, impulsado por la innovación
-            tecnológica, ha permitido a la sociedad crear prosperidad y mejorar la calidad de vida.
-            Sin embargo, este rápido cambio ha generado también un desafío de largo plazo: gestionar
-            los riesgos de seguridad a medida que el mundo depende cada vez más de la cibernética y las amenazas
-            aumentan.</p>
-        <p>Los líderes empresariales internacionales calificaron las amenazas cibernéticas como uno de los principales
-            riesgos
-            de negocios de acuerdo con los resultados obtenidos en la 21a Encuesta Global de CEO de PwC.</p>
-
-
-        <!-- Boton para Descargar actividad-->
-        <a href="../actividades/file.doc" download="GFG">
-            <button type="button">Descargar actividad</button>
-        </a>
-
-        <form>
-            <p>
-            <h3>Subir actividad</h3>
-            </p>
-            <div class="ui segment">
-                <div class="field d-flex">
-                    <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
-                    <label for="#elegir">Elige el archivo a subir: </label>
-                    <input id="elegir" name="uploadedfile" type="file" class="mx-2"/>
-                    <button onclick="alert('Enviado')" class="ms-2">Enviar</button>
-        </form>
-
-        </div>
+        <div class="course-element text">
+            <h4>La importancia de la Ciberseguridad</h4>
+            <p>El crecimiento global de las redes y la información, impulsado por la innovación
+                tecnológica, ha permitido a la sociedad crear prosperidad y mejorar la calidad de vida.
+                Sin embargo, este rápido cambio ha generado también un desafío de largo plazo: gestionar
+                los riesgos de seguridad a medida que el mundo depende cada vez más de la cibernética y las amenazas
+                aumentan.</p>
+            <p>Los líderes empresariales internacionales calificaron las amenazas cibernéticas como uno de los principales
+                riesgos
+                de negocios de acuerdo con los resultados obtenidos en la 21a Encuesta Global de CEO de PwC.</p>
         </div>
 
+        <div class="course-element video d-flex justify-content-center flex-column">
+            <h4>Tutorial sobre ciberseguridad</h4>
+            <video width="100%" height="400">
+                <source src="../Video/video.mp4">
+            </video>
+    
+            <div class="d-flex justify-content-center mt-3">
+                <button class="orange-button" onclick="playVid()">Play</button>
+                <button class="orange-button" onclick="pauseVid()">Pause</button>
+            </div>
+        </div>
 
+        <div class="course-element file">
+            <h4>Información adicional</h4>
+            <p>Este documento es importante porque incluye más información</p>
+            <!-- Boton para Descargar actividad-->
+            <a class="orange-button" href="../actividades/file.doc" download="GFG">Descargar documento</a>
+        </div>
+
+        <div class="course-element activity">
+            <h4>Protégete de los ataques</h4>
+            <p>¿Estás listo? Aquí tienes una actividad a realizar para ver si estás listo.</p>
+            <a class="orange-button">Realizar actividad</a>
+        </div>
+
+    </main>
 
 </body>
 </main>
@@ -220,6 +195,17 @@
         </div>
     </div>
 </footer>
+<script>
+
+
+    function playVid() {
+        video.play();
+    }
+
+    function pauseVid() {
+        video.pause();
+    } 
+</script>
 </body>
 
 </html>

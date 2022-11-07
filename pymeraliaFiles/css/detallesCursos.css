@@ -1,24 +1,4 @@
-#Button {
-    background-color: #FF6720;
-    color: black;
-    padding: 1px 17px 1px 16px;
-    margin-top: 5%;
-    font-size: 16px;
-    border-radius: 15px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: black;
-    justify-content: start;
-    align-items: start;
-    display: flex;
-    font-size: 20px;
-    font-weight: 800;
-    color: white;
-}
-
-
-
-#Button2 {
+.orange-button {
     background-color: #FF6720;
     color: black;
     padding: 1px 17px 1px 16px;
@@ -27,28 +7,26 @@
     border-width: 2px;
     border-style: solid;
     border-color: black;
-    justify-content: end;
-    align-items: end;
-    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 20px;
     font-weight: 800;
     color: white;
+    text-decoration: none;
 }
 
-#outer {
-    width: 100%;
-}
-
-.inner {
-    display: inline-block;
-    margin-left: 25%;
-}
-
-#video {
-    margin: auto;
-    max-width: 100%
+.orange-button:hover {
+    color: white;
+    background: #ff9950;
 }
 
 main {
     padding: 20px;
+}
+
+.course-element {
+    background: #fff5f0;
+    border-radius: 10px;
+    padding: 1em;
+    margin: 2em 0;
 }
