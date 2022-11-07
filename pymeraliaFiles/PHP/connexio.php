@@ -1,9 +1,9 @@
 <?php
 
     $servername = "mariadb";
-    $database = "MirMeet";
-    $username = "super";
-    $password = "MirMeet12";
+    $database = "pymeralia";
+    $username = "pymeralia";
+    $password = "pymeralia1";
 
     $conn = mysqli_connect($servername, $username, $password, $database);
 
