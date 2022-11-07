@@ -20,8 +20,9 @@
     background: #ff9950;
 }
 
-main {
-    padding: 20px;
+.admin-course-tools {
+    background: #dcdcdc;
+    height: fit-content;
 }
 
 .course-element {
