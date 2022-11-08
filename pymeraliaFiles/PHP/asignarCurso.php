@@ -1,6 +1,12 @@
 <?php
 include_once '../clases/Curs_class.php';
-$userId = $_GET['userid'];
-$curso = new Curs(1, 'ciber', 'algo', 'gf');
-$curso->assignCurso($userId)
+// Recuperem les dades enviades des del client
+$data = json_decode(file_get_contents('php://input'), true);
+
+['courseID' => $courseID, 'user' => $user] = $data;
+
+$curso = new Curs($courseID, 'ciber', 'algo', 'gf');
+$ok = $curso->assignCurso($user);
+
+echo json_encode(array('ok' => $ok))
 ?>

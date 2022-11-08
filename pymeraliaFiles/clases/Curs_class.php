@@ -163,7 +163,22 @@ class Curs
     public function assignCurso($userId)
     {
         include_once '../PHP/connexio.php';
-        $conn->query("INSERT INTO Usuari_Curs (`IdUsuaris`, `IdCurs`) VALUES (" . $userId . ", " . $this->getIdCurso() . ")");
+
+        $idCurs = 4;
+        $insert = $conn->prepare("INSERT INTO Usuari_Curs (IdUsuaris, IdCurs) VALUES (?, ?)");
+        $insert->bind_param('ii', $userId, $idCurs);
+
+        $success;
+        
+        try {
+            $success = $insert->execute();
+        } catch (\Throwable $th) {
+            $success = false;
+        }
+
+        return $success;
+
+
     }
     /**
      * unassignCurso - Futuro método para desasignar cursos
