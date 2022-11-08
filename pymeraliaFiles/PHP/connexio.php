@@ -9,8 +9,5 @@
 
     if (!$conn) {
         die("La connexió ha fallat:" . mysqli_connect_error());
-    }
-
-    echo "Connectat satisfactoriament."
-    
+    }    
 ?>

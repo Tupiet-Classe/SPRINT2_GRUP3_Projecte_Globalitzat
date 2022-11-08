@@ -99,6 +99,11 @@
                 <h3>Acciones rápidas</h3>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
+                        <button class="nav-link btn" href="addUsuarioCurso.html" data-bs-toggle="modal" data-bs-target="#addUser">
+                            <i class="fa-solid fa-user-plus"></i>Añadir alumno
+                        </button>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="usuariosCurso.html">
                             <i class="fa-solid fa-users"></i>Listado de alumnos
                         </a>
@@ -232,6 +237,37 @@
             </div>
         </div>
     </footer>
+
+    <!-- Hidden divs -->
+
+    <!-- Add user to course div -->
+    <div class="modal fade" id="addUser" tabindex="-1" aria-labelledby="addUserLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="addUserLabel">Añadir usuario al curso</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="addUserForm" action="../PHP/asignarCurso.php" method="post">
+                <div class="md-3">
+                    <label for="userToAdd" class="col-form-label">Nombre de usuario o correo electrónico</label>
+                    <input type="text" class="form-control" name="usertoadd" id="userToAdd">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" id="btn-add-user">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <span id="courseId" style="display: none;">1</span>
+
+      <script src="../scripts/detallesCurso.js"></script>
+
     <script>
 
 
