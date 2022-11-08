@@ -2,11 +2,12 @@ let id = id => document.getElementById(id)
 
 let btn = id('btn-add-user')
 let form = id('addUserForm')
+let modal = new bootstrap.Modal(id('addUser'))
 
 btn.addEventListener('click', async (e) => {
     e.preventDefault()
-    
-    let user = +id('userToAdd').value
+
+    let user = id('userToAdd').value
     let courseID = +id('courseId').innerText
 
     console.log(user, courseID)
@@ -23,9 +24,16 @@ btn.addEventListener('click', async (e) => {
     })
 
     if (response.ok) {
-        console.log('yay')
-        console.log(response)
         let data = await response.json()
-        console.log(await data.ok)
+        if (data.ok) {
+            modal.hide()
+            successToast.show()
+        } else {
+            errorToast.show()
+        }
+
     }
 })
+
+const successToast = new bootstrap.Toast(id('successToast'))
+const errorToast = new bootstrap.Toast(id('errorToast'))

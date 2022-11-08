@@ -160,9 +160,23 @@ class Curs
      *
      * @return void
      */
-    public function assignCurso($userId)
+    public function assignCurso($user)
     {
         include_once '../PHP/connexio.php';
+
+        $userId;
+
+        if (preg_match("/^\w+@\w+\.\w+$/", $user)) {
+            $emailQuery = $conn->prepare("SELECT Id FROM Usuaris WHERE Email = ?");
+            $emailQuery->bind_param('s', $user);
+
+            $userId = $this->get_id_from_query($emailQuery);
+        } else {
+            $usernameQuery = $conn->prepare("SELECT Id FROM Usuaris WHERE NomUsuaris = ?");
+            $usernameQuery->bind_param('s', $user);
+
+            $userId = $this->get_id_from_query($usernameQuery);
+        }
 
         $idCurs = 4;
         $insert = $conn->prepare("INSERT INTO Usuari_Curs (IdUsuaris, IdCurs) VALUES (?, ?)");
@@ -187,5 +201,14 @@ class Curs
      */
     public function unassignCurso()
     {
+    }
+
+    private function get_id_from_query($query) {
+        $query->execute();
+        
+        $result = $query->get_result();
+        if ($result->num_rows > 0) {
+            return $result->fetch_all(MYSQLI_ASSOC)[0]['Id'];
+        }
     }
 }

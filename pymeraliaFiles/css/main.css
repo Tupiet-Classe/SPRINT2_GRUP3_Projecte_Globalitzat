@@ -79,3 +79,13 @@ a:hover {
     font-size: 18px;
   }
 }
+
+.toast-success {
+  background: #FF6720;
+  color: white;
+}
+
+.toast-error {
+  background: #862b00;
+  color: white;
+}
