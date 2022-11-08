@@ -112,7 +112,7 @@ class Curs
      *
      * @return void
      */
-    private function addCurso()
+    public function addCurso()
     {
     }
     /**
@@ -120,7 +120,7 @@ class Curs
      *
      * @return void
      */
-    private function editCurso()
+    public function editCurso()
     {
     }
     /**
@@ -128,7 +128,7 @@ class Curs
      *
      * @return void
      */
-    private function deleteCurso()
+    public function deleteCurso()
     {
     }
     /**
@@ -144,7 +144,7 @@ class Curs
      *
      * @return void
      */
-    private function enableCurso()
+    public function enableCurso()
     {
     }
     /**
@@ -152,7 +152,7 @@ class Curs
      *
      * @return void
      */
-    private function disableCurso()
+    public function disableCurso()
     {
     }
     /**
@@ -160,15 +160,17 @@ class Curs
      *
      * @return void
      */
-    private function assignCurso()
+    public function assignCurso($userId)
     {
+        include_once '../PHP/connexio.php';
+        $conn->query("INSERT INTO Usuari_Curs (`IdUsuaris`, `IdCurs`) VALUES (" . $userId . ", " . $this->getIdCurso() . ")");
     }
     /**
      * unassignCurso - Futuro método para desasignar cursos
      *
      * @return void
      */
-    private function unassignCurso()
+    public function unassignCurso()
     {
     }
 }

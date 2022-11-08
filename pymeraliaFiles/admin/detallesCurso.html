@@ -48,8 +48,11 @@
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="../admin/index.html"><i
-                                                class="fa-solid fa-shield-halved"></i>Admin</a></li>
+                                    <li>
+                                        <a class="dropdown-item" href="../cliente/index.html"><i
+                                                class="fa-solid fa-shield-halved">
+                                            </i>Modo Usuario</a>
+                                    </li>
                                 </ul>
                             </li>
                     </div>
@@ -70,12 +73,16 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="index.html"><i
                                     class="fa-solid fa-house"></i>Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="cursos.html"><i
-                                    class="fa-solid fa-graduation-cap"></i>Cursos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="emblemas.html"><i
-                                    class="fa-solid fa-award"></i>Emblemas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="calificaciones.html"><i
-                                    class="fa-solid fa-star"></i>Calificaciones</a>
+                        <li class="nav-item"><a class="nav-link" href="dashboardCurso.html"><i
+                                    class="fa-solid fa-graduation-cap"></i>Listado Cursos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="usuariosCurso.html"><i
+                                    class="fa-solid fa-users"></i>Listado Alumnos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="crearActividad.html"><i
+                                    class="fa-solid fa-circle-plus"></i>Crear Actividad</a></li>
+                        <li class="nav-item"><a class="nav-link" href="editarCurso.html"><i
+                                    class="fa-solid fa-award"></i>Editar Curso</a></li>
+                        <li class="nav-item"><a class="nav-link" href="editarNotaUsuarios.html"><i
+                                    class="fa-solid fa-star"></i>Editar Nota</a>
                         </li>
                     </ul>
                 </div>
@@ -83,147 +90,159 @@
         <!--Header Menu-->
 
     </header>
+    <!--header-->
 
-    <main class="container">
 
-        <div class="accordion" id="accordion-1">
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-one">Hola</button>
-                </h2>
-                <div id="collapse-one" class="accordion-collapse collapse show" data-bs-parent="#accordion-1">
-                    <div class="accordion-body">
-                        <p>Holaa</p>
+    <main class="row m-0">
+        <aside class="container col-lg-4 col-xxl-3 pt-5 px-5">
+            <div class="admin-course-tools rounded-3 p-3">
+                <h3>Acciones rápidas</h3>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="usuariosCurso.html">
+                            <i class="fa-solid fa-users"></i>Listado de alumnos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="crearActividad.html">
+                            <i class="fa-solid fa-circle-plus"></i>Crear Actividad
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="editarCurso.html">
+                            <i class="fa-solid fa-award"></i>Editar Curso
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="editarNotaUsuarios.html">
+                            <i class="fa-solid fa-star"></i>Editar Nota
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <div class="course container col-lg-8 col-xxl-9 p-5">
+            <h1 id="course-title">La ciberseguridad es importante</h1>
+
+            <div class="course-element text">
+                <h4>La ciberseguridad</h4>
+                <p>La seguridad informática, también conocida como ciberseguridad, es el
+                    área relacionada con la informática y la telemática que se enfoca en la protección de la
+                    infraestructura computacional y todo lo vinculado con la misma, y especialmente la
+                    información contenida en una computadora o circulante a través de las redes de
+                    computadoras.2 Para ello existen una serie de estándares, protocolos, métodos, reglas,
+                    herramientas, y leyes concebidas para minimizar los posibles riesgos a la infraestructura
+                    y/o a la propia información. La ciberseguridad comprende software (bases de datos,
+                    metadatos, archivos), hardware, redes de computadoras, y todo lo que la organización
+                    entienda y valore como un riesgo si la información confidencial involucrada pudiera
+                    llegar a manos de otras personas, por ejemplo, convirtiéndose así en información privilegiada.</p>
+            </div>
+
+            <div class="course-element text">
+                <h4>La importancia de la Ciberseguridad</h4>
+                <p>El crecimiento global de las redes y la información, impulsado por la innovación
+                    tecnológica, ha permitido a la sociedad crear prosperidad y mejorar la calidad de vida.
+                    Sin embargo, este rápido cambio ha generado también un desafío de largo plazo: gestionar
+                    los riesgos de seguridad a medida que el mundo depende cada vez más de la cibernética y las amenazas
+                    aumentan.</p>
+                <p>Los líderes empresariales internacionales calificaron las amenazas cibernéticas como uno de los
+                    principales
+                    riesgos
+                    de negocios de acuerdo con los resultados obtenidos en la 21a Encuesta Global de CEO de PwC.</p>
+            </div>
+
+            <div class="course-element d-flex justify-content-center flex-column">
+                <h4>Tutorial sobre ciberseguridad</h4>
+                <video class="video" width="100%" height="400">
+                    <source src="../Video/video.mp4">
+                </video>
+
+                <div class="d-flex justify-content-center mt-3">
+                    <button class="orange-button" onclick="playVid()">Play</button>
+                    <button class="orange-button" onclick="pauseVid()">Pause</button>
+                </div>
+            </div>
+
+            <div class="course-element file">
+                <h4>Información adicional</h4>
+                <p>Este documento es importante porque incluye más información</p>
+                <!-- Boton para Descargar actividad-->
+                <a class="orange-button" href="../actividades/file.doc" download="GFG">Descargar documento</a>
+            </div>
+
+            <div class="course-element activity">
+                <h4>Protégete de los ataques</h4>
+                <p>¿Estás listo? Aquí tienes una actividad a realizar para ver si estás listo.</p>
+                <a class="orange-button">Realizar actividad</a>
+            </div>
+        </div>
+    </main>
+
+
+
+    <footer class="bg-black text-center text-lg-center mt-auto">
+        <div class="text-center p-3">
+            <div class="fluid-container">
+                <div class="row">
+                    <div id="logo-footer" class="col-6 col-md-3">
+                        <a class="text-light" href="index.html"><img src="../images/logo_pymeshield_black.png"
+                                alt="Logo" width="50px" style="margin-right: 5px;"
+                                class="d-inline-block align-text-middle"><i class="fa-solid fa-copyright"></i>pymeshield
+                            by Pymeralia</a>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <h6 id="title-footer">Acerca de Pymeralia</h6>
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a href="#" class="text-light">Política de privacidad</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-light">Política de cookies</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-light">Aviso legal</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-light">Ley de protección</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <h6 id="title-footer">Contacto</h6>
+                        <p><i class="fa-solid fa-phone"></i>682849274 <br> <i
+                                class="fa-solid fa-envelope"></i>support@pymeralia.com</p>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <h6 id="title-footer">RRSS</h6>
+                        <ul class="list-unstyled mb-0" id="footer-rrss">
+                            <li>
+                                <a class="text-light" href="#"><i class="fa-brands fa-tiktok"></i></a>
+                                <a class="text-light" href="#"><i class="fa-brands fa-twitter"></i></a>
+                            </li>
+                            </li>
+                            <li>
+                                <a class="text-light" href="#"><i class="fa-brands fa-instagram"></i></a>
+                                <a class="text-light" href="#"><i class="fa-brands fa-facebook"></i></a>
+                            </li>
+                            <li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-        
-
-        <video id="video" width="1150" height="400">
-            <source src="../Video/video.mp4">
-
-        </video>
-
-        <div id="outer">
-            <div class="inner"><button id="Button" onClick="playVid()">Play</button></div>
-            <div class="inner"><button id="Button2" onClick="pauseVid()">Pause</button></div>
-        </div>
+    </footer>
+    <script>
 
 
-        <script>
+        function playVid() {
+            video.play();
+        }
 
-
-            function playVid() {
-                video.play();
-            }
-
-            function pauseVid() {
-                video.pause();
-            } 
-        </script>
-
-
-        <H3>La ciberseguridad</H3>
-        <p>La seguridad informática, también conocida como ciberseguridad, es el
-            área relacionada con la informática y la telemática que se enfoca en la protección de la
-            infraestructura computacional y todo lo vinculado con la misma, y especialmente la
-            información contenida en una computadora o circulante a través de las redes de
-            computadoras.2​ Para ello existen una serie de estándares, protocolos, métodos, reglas,
-            herramientas, y leyes concebidas para minimizar los posibles riesgos a la infraestructura
-            y/o a la propia información. La ciberseguridad comprende software (bases de datos,
-            metadatos, archivos), hardware, redes de computadoras, y todo lo que la organización
-            entienda y valore como un riesgo si la información confidencial involucrada pudiera
-            llegar a manos de otras personas, por ejemplo, convirtiéndose así en información privilegiada.</p>
-
-        <H4>La importancia de la Ciberseguridad</H4>
-        <p>El crecimiento global de las redes y la información, impulsado por la innovación
-            tecnológica, ha permitido a la sociedad crear prosperidad y mejorar la calidad de vida.
-            Sin embargo, este rápido cambio ha generado también un desafío de largo plazo: gestionar
-            los riesgos de seguridad a medida que el mundo depende cada vez más de la cibernética y las amenazas
-            aumentan.</p>
-        <p>Los líderes empresariales internacionales calificaron las amenazas cibernéticas como uno de los principales
-            riesgos
-            de negocios de acuerdo con los resultados obtenidos en la 21a Encuesta Global de CEO de PwC.</p>
-
-
-        <!-- Boton para Descargar actividad-->
-        <a href="../actividades/file.doc" download="GFG">
-            <button type="button">Descargar actividad</button>
-        </a>
-
-        <form>
-            <p>
-            <h3>Subir actividad</h3>
-            </p>
-            <div class="ui segment">
-                <div class="field">
-                    <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
-                    <label for="#elegir">Elige el archivo a subir: </label>
-                    <input id="elegir" name="uploadedfile" type="file" /><br />
-
-                    <button onclick="alert('Enviado')">Enviar</button>
-        </form>
-
-        </div>
-        </div>
-
-
-
-</body>
-</main>
-
-<footer class="bg-black text-center text-lg-center mt-auto">
-    <div class="text-center p-3">
-        <div class="fluid-container">
-            <div class="row">
-                <div id="logo-footer" class="col-6 col-md-3">
-                    <a class="text-light" href="index.html"><img src="../images/logo_pymeshield_black.png" alt="Logo"
-                            width="50px" style="margin-right: 5px;" class="d-inline-block align-text-middle"><i
-                            class="fa-solid fa-copyright"></i>pymeshield
-                        by Pymeralia</a>
-                </div>
-                <div class="col-6 col-md-3">
-                    <h6 id="title-footer">Acerca de Pymeralia</h6>
-                    <ul class="list-unstyled mb-0">
-                        <li>
-                            <a href="#" class="text-light">Política de privacidad</a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-light">Política de cookies</a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-light">Aviso legal</a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-light">Ley de protección</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-6 col-md-3">
-                    <h6 id="title-footer">Contacto</h6>
-                    <p><i class="fa-solid fa-phone"></i>682849274 <br> <i
-                            class="fa-solid fa-envelope"></i>support@pymeralia.com</p>
-                </div>
-                <div class="col-6 col-md-3">
-                    <h6 id="title-footer">RRSS</h6>
-                    <ul class="list-unstyled mb-0" id="footer-rrss">
-                        <li>
-                            <a class="text-light" href="#"><i class="fa-brands fa-tiktok"></i></a>
-                            <a class="text-light" href="#"><i class="fa-brands fa-twitter"></i></a>
-                        </li>
-                        </li>
-                        <li>
-                            <a class="text-light" href="#"><i class="fa-brands fa-instagram"></i></a>
-                            <a class="text-light" href="#"><i class="fa-brands fa-facebook"></i></a>
-                        </li>
-                        <li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+        function pauseVid() {
+            video.pause();
+        } 
+    </script>
 </body>
 
 </html>

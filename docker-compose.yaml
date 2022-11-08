@@ -8,7 +8,7 @@ services:
       links:
         - 'mariadb:db'
       ports:
-        - 80:80
+        - 83:80
       volumes:
         - "./pymeraliaFiles:/var/www/html"
     
@@ -39,3 +39,4 @@ services:
         - 8081:80
     nodejs:
       image: node:latest
+      tty: true
