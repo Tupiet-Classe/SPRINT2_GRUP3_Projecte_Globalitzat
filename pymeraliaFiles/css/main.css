@@ -1,3 +1,8 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
 body {
   background-color: #ffffff;
   font-family: 'Montserrat';
@@ -6,6 +11,11 @@ body {
 
 header {
   background-color: #FF6720;
+}
+
+button{
+  border: none;
+  background-color:unset;
 }
 
 .nav-item img {
