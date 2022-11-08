@@ -1,4 +1,5 @@
 <?php
+include("../PHP/connexio.php")
 class Recursos{
     private $idRecurso;
     private $nombreRecurso;
@@ -85,7 +86,10 @@ class Recursos{
      * @return void
      */
     private function deleteRecursos(){
-
+        $paperera = "SELECT Ocult FROM recursosURL";
+        if($paperera is true){
+            "UPDATE recursos SET paperera = false WHERE Id = id element(agafar la id del recurs)";
+        }
     }
 
     /** Método que muestra un recurso existente */    
