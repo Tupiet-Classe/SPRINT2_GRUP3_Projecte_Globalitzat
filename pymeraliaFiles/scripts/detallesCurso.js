@@ -4,9 +4,17 @@ let btn = id('btn-add-user')
 let form = id('addUserForm')
 let modal = new bootstrap.Modal(id('addUser'))
 
-btn.addEventListener('click', async (e) => {
+form.addEventListener('submit', (e) => {
     e.preventDefault()
+    asignCourse()
+})
 
+btn.addEventListener('click', (e) => {
+    e.preventDefault()
+    asignCourse()
+})
+
+async function asignCourse() {
     let user = id('userToAdd').value
     let courseID = +id('courseId').innerText
 
@@ -33,7 +41,7 @@ btn.addEventListener('click', async (e) => {
         }
 
     }
-})
+}
 
 const successToast = new bootstrap.Toast(id('successToast'))
 const errorToast = new bootstrap.Toast(id('errorToast'))
