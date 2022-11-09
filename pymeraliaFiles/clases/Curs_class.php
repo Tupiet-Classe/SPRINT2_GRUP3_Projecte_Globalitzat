@@ -178,9 +178,8 @@ class Curs
             $userId = $this->get_id_from_query($usernameQuery);
         }
 
-        $idCurs = 4;
         $insert = $conn->prepare("INSERT INTO Usuari_Curs (IdUsuaris, IdCurs) VALUES (?, ?)");
-        $insert->bind_param('ii', $userId, $idCurs);
+        $insert->bind_param('ii', $userId, $this->idCurso);
 
         $success;
         
@@ -189,6 +188,8 @@ class Curs
         } catch (\Throwable $th) {
             $success = false;
         }
+
+        $conn->close();
 
         return $success;
 
@@ -202,6 +203,20 @@ class Curs
     public function unassignCurso()
     {
     }
+
+    public function get_users_from_course() {
+        include_once '../PHP/connexio.php';
+
+        $selectQuery = $conn->prepare('SELECT Usuaris.Id, Usuaris.NomUsuaris, Usuaris.Nom, Usuaris.Cognom FROM Usuaris INNER JOIN Usuari_Curs ON Usuaris.Id = Usuari_Curs.IdUsuaris WHERE Usuari_Curs.IdCurs = ?');
+        $selectQuery->bind_param('i', $this->idCurso);
+
+        $selectQuery->execute();
+
+        $result = $selectQuery->get_result();
+        if ($result->num_rows > 0) {
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+    } 
 
     private function get_id_from_query($query) {
         $query->execute();

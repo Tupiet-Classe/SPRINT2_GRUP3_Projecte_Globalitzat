@@ -101,35 +101,31 @@
         <table class="table table-striped align-middle">
             <thead>
                 <tr>
-                    <th scope="col">Id</th>
+                    <th scope="col">Nombre de usuario</th>
                     <th scope="col">Nombre</th>
-                    <th scope="col">Primer Apellido</th>
-                    <th scope="col">Segundo Apellido</th>
-                    <th scope="col">DNI</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Opciones</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row" class="id">1</th>
-                    <td class="nombre">Ramon</td>
-                    <td class="apellido-1">García</td>
-                    <td class="apellido-2">García</td>
-                    <td class="dni">43567826P</td>
-                </tr>
-                <tr>
-                    <th scope="row" class="id">5</th>
-                    <td class="nombre">Jesús</td>
-                    <td class="apellido-1">Trujillo</td>
-                    <td class="apellido-2">San Juan</td>
-                    <td class="dni">753902673K</td>
-                </tr>
-                <tr>
-                    <th scope="row" class="id">14</th>
-                    <td class="nombre">Carla</td>
-                    <td class="apellido-1">García</td>
-                    <td class="apellido-2">Perolada</td>
-                    <td class="dni">75460222H</td>
-                </tr>
+                <?php
+                    include_once '../clases/Curs_class.php';
+                    $curs = new Curs(4, 'dd', '44', 'd');
+
+                    $users = $curs->get_users_from_course();
+
+                    foreach ($users as $key => $user) {
+                        echo
+                            '<tr>',
+                                '<td class="username">' . $user['NomUsuaris'] . '</td>',
+                                '<td class="nombre">' . $user['Nom'] . '</td>',
+                                '<td class="apellido-1">' . $user['Cognom'] . '</td>',
+                                '<td class="apellido-2">',
+                                    '<button class="orange-button" onclick="expulsar(' . $user['Id']  . ')">Expulsar</button>',
+                                '</td>',
+                            '</tr>';
+                    }
+                ?>
             </tbody>
         </table>
     <!--Ciberseguridad para Empresas-->
