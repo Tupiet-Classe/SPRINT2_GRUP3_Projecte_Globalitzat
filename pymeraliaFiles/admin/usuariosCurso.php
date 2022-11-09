@@ -18,6 +18,13 @@
     <link rel="stylesheet" href="../css/main.css">
     <!--header, footer-->
     <title>Lista Alumnos</title>
+
+    <style>
+        .tu-whitespace {
+            width: fit-content;
+            height: 2rem;
+        }
+    </style>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
@@ -83,10 +90,9 @@
                                         class="fa-solid fa-award"></i>Editar Curso</a></li>
                           <li class="nav-item"><a class="nav-link" href="editarNotaUsuarios.html"><i
                                         class="fa-solid fa-star"></i>Editar Nota</a>
-                            </li>
                             <li class="nav-item"><a class="nav-link" href="emblemasAdmin.html"><i
                                 class="fa-solid fa-certificate"></i>Editar Emblemas</a>
-                    </li>
+                            </li>
                         </ul>
                     </div>
         </nav>
@@ -95,48 +101,86 @@
     </header>
     <!--header-->
 
-    <div class="container overflow-hidden text-center py-3" id="cuerpo">
+    <div class="container overflow-hidden text-center py-3 position-relative mb-5" id="cuerpo">
         <div>
-            <h2>Lista Alumnos</h2>
+            <h2 class="py-3">Lista Alumnos</h2>
         </div>
 
-        <!--Ciberseguridad para Empresas-->
-        <table class="table table-striped align-middle">
-            <thead>
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Primer Apellido</th>
-                    <th scope="col">Segundo Apellido</th>
-                    <th scope="col">DNI</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row" class="id">1</th>
-                    <td class="nombre">Ramon</td>
-                    <td class="apellido-1">García</td>
-                    <td class="apellido-2">García</td>
-                    <td class="dni">43567826P</td>
-                </tr>
-                <tr>
-                    <th scope="row" class="id">5</th>
-                    <td class="nombre">Jesús</td>
-                    <td class="apellido-1">Trujillo</td>
-                    <td class="apellido-2">San Juan</td>
-                    <td class="dni">753902673K</td>
-                </tr>
-                <tr>
-                    <th scope="row" class="id">14</th>
-                    <td class="nombre">Carla</td>
-                    <td class="apellido-1">García</td>
-                    <td class="apellido-2">Perolada</td>
-                    <td class="dni">75460222H</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="d-flex justify-content-end mb-3 me-3 me-sm-5">
+            <button class="orange-button" data-bs-toggle="modal" data-bs-target="#addUser">
+                    <i class="fa fa-user-plus"></i>
+                    Añadir usuario
+            </button>
+        </div>
+
+        <?php
+            include_once '../clases/Curs_class.php';
+            $curs = new Curs(4, 'dd', '44', 'd');
+
+            $users = $curs->get_users_from_course();
+
+            if ($users != false) {
+                echo  
+                    '<table class="table table-striped align-middle">',
+                        '<thead>',
+                            '<tr>',
+                                '<th scope="col">Nombre de usuario</th>',
+                                '<th scope="col">Nombre</th>',
+                                '<th scope="col">Apellido</th>',
+                                '<th scope="col">Opciones</th>',
+                            '</tr>',
+                        '</thead>',
+                        '<tbody>';
+
+                foreach ($users as $key => $user) {
+                    echo
+                        '<tr>',
+                            '<td class="username">' . $user['NomUsuaris'] . '</td>',
+                            '<td class="nombre">' . $user['Nom'] . '</td>',
+                            '<td class="apellido-1">' . $user['Cognom'] . '</td>',
+                            '<td class="apellido-2">',
+                                '<button class="orange-button" onclick="expulsar(' . $user['Id']  . ')">Expulsar</button>',
+                            '</td>',
+                        '</tr>';
+                }
+
+                echo 
+                    '</tbody>',
+                '</table>';
+            } else {
+                echo '<h6>Aún no hay usuarios en este curso</h6>';
+            }
+
+        ?>
+
+        <div class="tu-whitespace"></div>
+
+            
     <!--Ciberseguridad para Empresas-->
 
+        <!-- Toasts -->
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="successToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header toast-success">
+                    <strong class="me-auto">Pymeshield</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body" id="successToastMessage">
+                    El usuario se ha añadido correctamente
+                </div>
+            </div>
+        </div>
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="errorToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header toast-error">
+                    <strong class="me-auto">Pymeshield</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body" id="errorToastMessage">
+                    Los datos introducidos no corresponden a ningún usuario
+                </div>
+            </div>
+        </div>
     </div>
     <!--Política de Contraseñas-->
 
@@ -192,10 +236,38 @@
             </div>
         </div>
     </footer>
+
+
+    <!-- Add user to course div -->
+    <div class="modal fade" id="addUser" tabindex="-1" aria-labelledby="addUserLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="addUserLabel">Añadir usuario al curso</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addUserForm" action="../PHP/asignarCurso.php" method="post">
+                        <div class="md-3">
+                            <label for="userToAdd" class="col-form-label">Nombre de usuario o correo electrónico</label>
+                            <input type="text" class="form-control" name="usertoadd" id="userToAdd">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" id="btn-add-user">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <span id="courseId" style="display: none;">4</span>
+
+
+
+    <script src="../scripts/usuariosCurso.js"></script>
     <!--footer-->
-
-
-
 </body>
 
 </html>
