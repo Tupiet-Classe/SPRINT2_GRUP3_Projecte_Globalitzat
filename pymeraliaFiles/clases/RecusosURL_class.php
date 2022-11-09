@@ -79,17 +79,30 @@ class Recursos{
 
     }
 
+    /** Método que envia a la papelera un recurso existente */    
+    /**
+     * deleteRecursos
+     *
+     * @return void
+     */
+    private function papeleraRecursos($tblname,$field_id,$id){
+        $paperera = "SELECT Ocult FROM recursosURL";
+        if($paperera is true){
+            "UPDATE recursos SET paperera = false WHERE Id = id element(agafar la id del recurs)";
+        }
+    }
+
     /** Método que elimina un recurso existente */    
     /**
      * deleteRecursos
      *
      * @return void
      */
-    private function deleteRecursos(){
-        $paperera = "SELECT Ocult FROM recursosURL";
-        if($paperera is true){
-            "UPDATE recursos SET paperera = false WHERE Id = id element(agafar la id del recurs)";
-        }
+    private function deleteRecursos($tblname,$field_id,$id){
+
+        $sql = "DELETE from ".$tblname." WHERE ".$field_id."=".$id."";
+        
+        return db_query($sql);
     }
 
     /** Método que muestra un recurso existente */    

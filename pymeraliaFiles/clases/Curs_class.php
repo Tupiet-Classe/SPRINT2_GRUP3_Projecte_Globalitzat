@@ -136,9 +136,14 @@ class Curs
      *
      * @return void
      */
-    public function showCursos()
+    public function showCursos($tblname,$field_name,$field_id)
     {
+        $sql = "Select * from ".$tblname." where ".$field_name." = ".$field_id."";
+        $db=db_query($sql);
+        $GLOBALS['row'] = mysqli_fetch_object($db);
+        return $sql;
     }
+    
     /**
      * enableCurso - Futuro método para activar cursos
      *
