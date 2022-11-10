@@ -15,6 +15,7 @@ header {
 
 button{
   border: none;
+  font-family: 'Montserrat';
   background-color:unset;
 }
 
@@ -80,6 +81,10 @@ a:hover {
   }
 }
 
+.toast {
+  --bs-toast-bg: white
+}
+
 .toast-success {
   background: #FF6720;
   color: white;
@@ -88,4 +93,17 @@ a:hover {
 .toast-error {
   background: #862b00;
   color: white;
+}
+
+.orange-button {
+  background: #FF6720;
+  color: white;
+  padding: 0.4em 0.5em;
+  border-radius: 15px;
+  text-decoration: none;
+}
+
+.orange-button:hover {
+  color: white;
+  background: #ff9950;
 }

@@ -136,9 +136,14 @@ class Curs
      *
      * @return void
      */
-    public function showCursos()
+    public function showCursos($tblname,$field_name,$field_id)
     {
+        $sql = "Select * from ".$tblname." where ".$field_name." = ".$field_id."";
+        $db=db_query($sql);
+        $GLOBALS['row'] = mysqli_fetch_object($db);
+        return $sql;
     }
+    
     /**
      * enableCurso - Futuro método para activar cursos
      *
@@ -178,9 +183,8 @@ class Curs
             $userId = $this->get_id_from_query($usernameQuery);
         }
 
-        $idCurs = 4;
         $insert = $conn->prepare("INSERT INTO Usuari_Curs (IdUsuaris, IdCurs) VALUES (?, ?)");
-        $insert->bind_param('ii', $userId, $idCurs);
+        $insert->bind_param('ii', $userId, $this->idCurso);
 
         $success;
         
@@ -189,6 +193,8 @@ class Curs
         } catch (\Throwable $th) {
             $success = false;
         }
+
+        $conn->close();
 
         return $success;
 
@@ -199,9 +205,38 @@ class Curs
      *
      * @return void
      */
-    public function unassignCurso()
-    {
+    public function unassignCurso($user) {
+        include_once '../PHP/connexio.php';
+        // Primer, revisarem si aquest usuari està assignat a aquest curs o no
+        $existsQuery = $conn->prepare('SELECT Id FROM Usuari_Curs WHERE IdCurs = ? AND IdUsuaris = ?');
+        $existsQuery->bind_param('ii', $this->idCurso, $user);
+        $existsQuery->execute();
+
+        $resultExists = $existsQuery->get_result();
+        if ($resultExists->num_rows > 0) {
+            // L'usuari està assignat
+            $idToDelete = $resultExists->fetch_all(MYSQLI_ASSOC)[0]['Id'];
+            $unassignQuery = $conn->prepare('DELETE FROM Usuari_Curs WHERE Id = ?');
+            $unassignQuery->bind_param('i', $idToDelete);
+            $unassignQuery->execute();
+        } 
     }
+
+    public function get_users_from_course() {
+        include_once '../PHP/connexio.php';
+
+        $selectQuery = $conn->prepare('SELECT Usuaris.Id, Usuaris.NomUsuaris, Usuaris.Nom, Usuaris.Cognom FROM Usuaris INNER JOIN Usuari_Curs ON Usuaris.Id = Usuari_Curs.IdUsuaris WHERE Usuari_Curs.IdCurs = ?');
+        $selectQuery->bind_param('i', $this->idCurso);
+
+        $selectQuery->execute();
+
+        $result = $selectQuery->get_result();
+        if ($result->num_rows > 0) {
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else return false;
+
+        $conn->close();
+    } 
 
     private function get_id_from_query($query) {
         $query->execute();
