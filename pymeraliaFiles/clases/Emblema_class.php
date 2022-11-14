@@ -134,7 +134,9 @@ class Emblema {
    * @return void
    */
   public function showEmblema(){
-
+    $sql = "SELECT name_emblem,image FROM emblems WHERE id_emblem = $this->idEmblema"; 
+    $db = db_query($sql);
+    return $db;
 }
   
   /**
