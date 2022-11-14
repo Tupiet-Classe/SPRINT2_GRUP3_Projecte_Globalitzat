@@ -136,12 +136,11 @@ class Curs
      *
      * @return void
      */
-    public function showCursos($tblname,$field_name,$field_id)
+    public function showCursos()
     {
-        $sql = "Select * from ".$tblname." where ".$field_name." = ".$field_id."";
-        $db=db_query($sql);
-        $GLOBALS['row'] = mysqli_fetch_object($db);
-        return $sql;
+            $sql = "SELECT name_course from courses where id_course = $this->idCurso"; 
+            $db=db_query($sql);
+            return $db;
     }
     
     /**
