@@ -161,7 +161,7 @@ class Curs
     {
     }
     /**
-     * assignCurso - Futuro método para asignar cursos
+     * assignCurso - Método para asignar cursos
      *
      * @return void
      */
@@ -201,7 +201,7 @@ class Curs
 
     }
     /**
-     * unassignCurso - Futuro método para desasignar cursos
+     * unassignCurso - Método para desasignar cursos
      *
      * @return void
      */
@@ -220,6 +220,8 @@ class Curs
             $unassignQuery->bind_param('i', $idToDelete);
             $unassignQuery->execute();
         } 
+
+        $conn->close();
     }
 
     public function get_users_from_course() {
