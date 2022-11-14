@@ -99,7 +99,7 @@ class Recursos{
      *
      * @return void
      */
-    public function deleteRecursos($id){
+    public function deleteRecursos(){
 
         $sql = "DELETE from resource_url WHERE id_resource_url = $this -> idRecurso";
         

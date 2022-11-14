@@ -125,7 +125,11 @@ class Emblema {
    * @return void
    */
   public function deleteEmblema(){
+    $today = date("m-d-y");  
 
+    $sql = "UPDATE emblems  SET hidden = $today where id_emblem = $this -> idEmblema";
+    
+    return db_query($sql);
 }
   
   /**
