@@ -112,8 +112,8 @@ class Recursos{
      *
      * @return void
      */
-    public function showRecursos(){
-        $sql = "SELECT name_recource_url from resources_url where id_resource_url = $this->idRecurso"; 
+    public static function showRecursos(){
+        $sql = "SELECT name_recource_url from resources_url "; 
         $db=db_query($sql);
         return $db;
     }

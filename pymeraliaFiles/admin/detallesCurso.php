@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
+<?php
+include("../clases/Curs_class.php");
 
+?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -151,6 +154,11 @@
             </div>
         </aside>
 
+        <?php
+        $curs = New Curs(1);
+        $curs -> showAllRecursos();
+
+?>
         <div class="course container col-lg-8 col-xxl-9 p-5">
             <h1 id="course-title">La ciberseguridad es importante</h1>
            
