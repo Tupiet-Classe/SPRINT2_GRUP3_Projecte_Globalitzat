@@ -108,10 +108,11 @@ class Emblema {
    *
    * @return void
    */
-  public function addEmblema(){
+  /*public function addEmblema(){
     $sql = "INSERT FROM WHERE ";
-    $db = db_query()
-}
+    $db = db_query();
+  }*/
+
   
   /**
    * editEmblema
@@ -120,7 +121,8 @@ class Emblema {
    */
   public function editEmblema(){
 
-}
+  }
+
   
   /**
    * deleteEmblema
@@ -128,12 +130,8 @@ class Emblema {
    * @return void
    */
   public function deleteEmblema(){
-    $today = date("m-d-y");  
 
-    $sql = "UPDATE emblems  SET hidden = $today where id_emblem = $this -> idEmblema";
-    
-    return db_query($sql);
-}
+  }
   
   /**
    * showEmblema
@@ -144,7 +142,7 @@ class Emblema {
     $sql = "SELECT name_emblem,image FROM emblems"; 
     $db = db_query($sql);
     return $db;
-}
+  }
   
   /**
    * enableEmlema
