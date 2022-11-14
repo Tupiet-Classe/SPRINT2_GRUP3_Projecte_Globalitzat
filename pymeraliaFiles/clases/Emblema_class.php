@@ -6,6 +6,7 @@ class Emblema {
   private $imagenEmblema;
 
   
+  /** Constructor de la classe Emblema */
   /**
    * __construct
    *
