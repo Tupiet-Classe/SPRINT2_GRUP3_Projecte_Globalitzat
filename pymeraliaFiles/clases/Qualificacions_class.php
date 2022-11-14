@@ -1,8 +1,8 @@
 <?php 
 class Qualificacions {
-  public $idQualificacions;
-  public $notaQualificacions;
-  public $descripcionQualificacions;
+  private $idQualificacions;
+  private $notaQualificacions;
+  private $descripcionQualificacions;
 
   
   /**

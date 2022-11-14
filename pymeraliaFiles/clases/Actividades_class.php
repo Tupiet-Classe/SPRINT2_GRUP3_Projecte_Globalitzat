@@ -1,7 +1,7 @@
 <?php
 class Actividades{
-    public $idActividad;
-    public $notaActividad;
+    private $idActividad;
+    private $notaActividad;
 
     /**
      * @param mixed $idActividad

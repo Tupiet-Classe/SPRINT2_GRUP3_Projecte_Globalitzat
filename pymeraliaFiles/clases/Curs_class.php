@@ -1,10 +1,10 @@
 <?php
 class Curs
 {
-    public $idCurso;
-    public $nombreCurso;
-    public $descripcionCurso;
-    public $imagenCurso;
+    private $idCurso;
+    private $nombreCurso;
+    private $descripcionCurso;
+    private $imagenCurso;
 
     /**
      * __construct - Constructor de clase

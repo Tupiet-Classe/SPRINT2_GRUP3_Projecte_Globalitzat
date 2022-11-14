@@ -1,8 +1,8 @@
 <?php
 include("../PHP/connexio.php")
 class Recursos{
-    public $idRecurso;
-    public $nombreRecurso;
+    private $idRecurso;
+    private $nombreRecurso;
 
     /** Constructor de la clase Recursos */    
     /**
@@ -85,8 +85,12 @@ class Recursos{
      *
      * @return void
      */
-    public function papeleraRecursos($tblname,$field_id,$id){
+    public function papeleraRecursos($tblname,$column){
         $today = date("m-d-y");  
+
+        $sql = "INSERT INTO ".$tblname."(".implode(',', $column).")  VALUES('".implode("','", $today)."')";
+        
+        return db_query($sql);
     }
 
     /** Método que elimina un recurso existente */    

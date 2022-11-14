@@ -1,9 +1,9 @@
 <?php 
 class Emblema {
-  public $idEmblema;
-  public $nombreEmblema;
-  public $descripcionEmblema;
-  public $imagenEmblema;
+  private $idEmblema;
+  private $nombreEmblema;
+  private $descripcionEmblema;
+  private $imagenEmblema;
 
   
   /**

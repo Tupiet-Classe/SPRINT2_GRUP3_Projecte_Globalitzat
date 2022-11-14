@@ -1,8 +1,8 @@
 <?php
 class Valoraciones{
-    public $idValoracion;
-    public $valoracionCurso;
-    public $feedbackCurso;
+    private $idValoracion;
+    private $valoracionCurso;
+    private $feedbackCurso;
 
     /** Constructor de la clase Recursos */    
     /**
