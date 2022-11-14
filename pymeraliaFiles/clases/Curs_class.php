@@ -1,4 +1,6 @@
 <?php
+include("../PHP/databaseFunctions.php")
+
 class Curs
 {
     private $idCurso;
@@ -141,6 +143,12 @@ class Curs
             $sql = "SELECT name_course from courses where id_course = $this->idCurso"; 
             $db=db_query($sql);
             return $db;
+    }
+
+    public static function showAllRecursos(){
+        $sql = "SELECT name_recource_url from resources_url where id_course = $this->idCurso"; 
+        $db=db_query($sql);
+        return $db;
     }
     
     /**
