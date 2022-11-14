@@ -1,4 +1,6 @@
 <?php 
+include("../PHP/connexio.php");
+include("../PHP/databaseFunctions.php");
 class Emblema {
   private $idEmblema;
   private $nombreEmblema;
@@ -107,7 +109,8 @@ class Emblema {
    * @return void
    */
   public function addEmblema(){
-
+    $sql = "INSERT FROM WHERE ";
+    $db = db_query()
 }
   
   /**
@@ -137,8 +140,8 @@ class Emblema {
    *
    * @return void
    */
-  public function showEmblema(){
-    $sql = "SELECT name_emblem,image FROM emblems WHERE id_emblem = $this->idEmblema"; 
+  public static function showEmblema(){
+    $sql = "SELECT name_emblem,image FROM emblems"; 
     $db = db_query($sql);
     return $db;
 }

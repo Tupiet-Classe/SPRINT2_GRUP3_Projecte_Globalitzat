@@ -98,7 +98,11 @@
                     + Añadir emblema
                 </button>
             </div>
+                <?php
 
+                
+
+                ?>
             <table class="table table-striped align-middle">
                 <thead>
                     <tr>
