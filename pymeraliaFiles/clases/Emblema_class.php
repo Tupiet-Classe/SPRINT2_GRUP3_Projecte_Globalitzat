@@ -6,6 +6,7 @@ class Emblema {
   private $imagenEmblema;
 
   
+  /** Constructor de la classe Emblema */
   /**
    * __construct
    *
@@ -124,7 +125,11 @@ class Emblema {
    * @return void
    */
   public function deleteEmblema(){
+    $today = date("m-d-y");  
 
+    $sql = "UPDATE emblems  SET hidden = $today where id_emblem = $this -> idEmblema";
+    
+    return db_query($sql);
 }
   
   /**
@@ -133,7 +138,9 @@ class Emblema {
    * @return void
    */
   public function showEmblema(){
-
+    $sql = "SELECT name_emblem,image FROM emblems WHERE id_emblem = $this->idEmblema"; 
+    $db = db_query($sql);
+    return $db;
 }
   
   /**

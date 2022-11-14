@@ -1,5 +1,6 @@
 <?php
 include("../PHP/connexio.php")
+include("../PHP/databaseFunctions.php")
 class Recursos{
     private $idRecurso;
     private $nombreRecurso;
@@ -12,9 +13,8 @@ class Recursos{
      * @param  mixed $nombreRecurso
      * @return void
      */
-    public function __construct($idRecurso, $nombreRecurso){
+    public function __construct($idRecurso){
         $this->idRecurso = $idRecurso;
-        $this->nombreRecurso = $nombreRecurso;
     }
 
     /** getter Id Recurso */    
@@ -85,10 +85,10 @@ class Recursos{
      *
      * @return void
      */
-    public function papeleraRecursos($tblname,$column){
+    public function papeleraRecursos(){
         $today = date("m-d-y");  
 
-        $sql = "INSERT INTO ".$tblname."(".implode(',', $column).")  VALUES('".implode("','", $today)."')";
+        $sql = "UPDATE resource_url  SET hidden = $today where id_resource_url = $this -> idRecurso";
         
         return db_query($sql);
     }
@@ -99,9 +99,9 @@ class Recursos{
      *
      * @return void
      */
-    public function deleteRecursos($tblname,$field_id,$id){
+    public function deleteRecursos(){
 
-        $sql = "DELETE from ".$tblname." WHERE ".$field_id."=".$id."";
+        $sql = "DELETE from resource_url WHERE id_resource_url = $this -> idRecurso";
         
         return db_query($sql);
     }
@@ -113,7 +113,9 @@ class Recursos{
      * @return void
      */
     public function showRecursos(){
-
+        $sql = "SELECT name_recource_url from resources_url where id_resource_url = $this->idRecurso"; 
+        $db=db_query($sql);
+        return $db;
     }
 
     /** Método que asigna un recurso */    
