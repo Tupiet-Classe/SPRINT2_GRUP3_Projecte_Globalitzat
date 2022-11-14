@@ -1,5 +1,5 @@
 <?php
-include("../PHP/databaseFunctions.php")
+include("../PHP/databaseFunctions.php");
 
 class Curs
 {
@@ -145,7 +145,7 @@ class Curs
             return $db;
     }
 
-    public static function showAllRecursos(){
+    public function showAllRecursos(){
         $sql = "SELECT name_recource_url from resources_url where id_course = $this->idCurso"; 
         $db=db_query($sql);
         return $db;
