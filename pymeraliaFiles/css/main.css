@@ -15,6 +15,7 @@ header {
 
 button{
   border: none;
+  font-family: 'Montserrat';
   background-color:unset;
 }
 
@@ -78,6 +79,10 @@ a:hover {
   #menu-dropdown i {
     font-size: 18px;
   }
+}
+
+.toast {
+  --bs-toast-bg: white
 }
 
 .toast-success {

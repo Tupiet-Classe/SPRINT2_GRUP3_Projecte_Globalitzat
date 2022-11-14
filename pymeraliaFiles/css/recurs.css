@@ -7,10 +7,36 @@
 
 body{
     display: flex;
-    
     justify-content: center;
     min-height: 100vh;
 }
+
+#contenedor1{
+    margin-left:23%
+
+
+}
+
+#Button1{
+    background-color: #FF6720;
+    width: 180px;
+    height: 40px;
+    text-align: center;
+    font-size: medium;
+    
+}
+
+
+#Button2{
+    background-color:#FF6720;
+    width: 120px;
+    height: 40px;
+    text-align: center;
+    font-size: medium;
+    margin-left: 65%;
+}
+
+
 
 .drop-area{
     border: 5px dashed #ddd;
@@ -23,7 +49,7 @@ body{
     flex-direction: column;
 }
 
-.drag-area.active{
+.dr-area.active{
     background-color: #b8d4fe;
     color: black;
     border: 2px dashed #b8fab8

@@ -14,7 +14,8 @@
     <link href="../css/solid.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <link rel="stylesheet" href="../css/detallesCursos.css">
-    <link rel="stylesheet" href="../css/recurs.css"
+    <link rel="stylesheet" href="../css/recurs.css">
+    <script src="../scripts/recurs.js"></script>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
@@ -80,19 +81,51 @@
                     </ul>
                 </div>
         </nav>
-        <!--Header Menu-->
+        <!--Header Menu-->  
 
     </header>
 
-    <body>
-        <div class="drop-area">
-        <h2>Arrastra y suelta las imágenes</h2>
-        <span>o</span>
-        <button>Selecciona tus archivos</button>
-        <input type="file" name="" id="input-file" hidden multiple />
-    </div>
-    <div id="preview"></div>
-    <script src="../scripts/recurs.js"></script>
+<body>
+            <div class="drop-area" id="contenedor1">
+                <h2>Arrastra y suelta tus archivos</h2>
+                <span>O</span>
+                <button>Selecciona tus archivos</button>
+                <input type="file" name="" id="input-file" hidden multiple />
+                <div>
+                    <button id="BotonEnviar">Enviar archivos</button>
+                </div>
+                    <div id="Caixeta1">
+                        <div class="accordion pb-3" id="accordionFlushExample">
+                            <div class="accordion-item">
+                                <h2>
+                                    <button type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                        Editar archivo
+                                    </button>
+                                </h2> 
+                                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                                    data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">
+                                        <div>
+                                            <table class="table table-striped align-middle">
+                                                <thead>
+                                                    <tr>
+                                                        <button id="Button1"><b>Canviar nombre</b></button>
+                                                        <button id="Button2"><b>Suprimir</b></button>
+                                                        
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                   
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
 </body>
    
 <footer class="bg-black text-center text-lg-center mt-auto">
@@ -100,9 +133,9 @@
         <div class="fluid-container">
             <div class="row">
                 <div id="logo-footer" class="col-6 col-md-3">
-                    <a class="text-light" href="index.html"><img src="../images/logo_pymeshield_black.png" alt="Logo"
-                            width="50px" style="margin-right: 5px;" class="d-inline-block align-text-middle"><i
-                            class="fa-solid fa-copyright"></i>pymeshield
+                    <a class="text-light" href="index.html"><img src="../images/logo_pymeshield_black.png"
+                            alt="Logo" width="50px" style="margin-right: 5px;"
+                            class="d-inline-block align-text-middle"><i class="fa-solid fa-copyright"></i>pymeshield
                         by Pymeralia</a>
                 </div>
                 <div class="col-6 col-md-3">
@@ -146,17 +179,6 @@
         </div>
     </div>
 </footer>
-<script>
-
-
-    function playVid() {
-        video.play();
-    }
-
-    function pauseVid() {
-        video.pause();
-    } 
-</script>
 </body>
 
 </html>

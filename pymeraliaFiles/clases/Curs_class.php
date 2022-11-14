@@ -205,8 +205,21 @@ class Curs
      *
      * @return void
      */
-    public function unassignCurso()
-    {
+    public function unassignCurso($user) {
+        include_once '../PHP/connexio.php';
+        // Primer, revisarem si aquest usuari està assignat a aquest curs o no
+        $existsQuery = $conn->prepare('SELECT Id FROM Usuari_Curs WHERE IdCurs = ? AND IdUsuaris = ?');
+        $existsQuery->bind_param('ii', $this->idCurso, $user);
+        $existsQuery->execute();
+
+        $resultExists = $existsQuery->get_result();
+        if ($resultExists->num_rows > 0) {
+            // L'usuari està assignat
+            $idToDelete = $resultExists->fetch_all(MYSQLI_ASSOC)[0]['Id'];
+            $unassignQuery = $conn->prepare('DELETE FROM Usuari_Curs WHERE Id = ?');
+            $unassignQuery->bind_param('i', $idToDelete);
+            $unassignQuery->execute();
+        } 
     }
 
     public function get_users_from_course() {
@@ -220,7 +233,9 @@ class Curs
         $result = $selectQuery->get_result();
         if ($result->num_rows > 0) {
             return $result->fetch_all(MYSQLI_ASSOC);
-        }
+        } else return false;
+
+        $conn->close();
     } 
 
     private function get_id_from_query($query) {

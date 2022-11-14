@@ -89,9 +89,16 @@
     </header>
     <div class="container overflow-hidden text-center py-3" id="cuerpo">
         <div>
-            <h2>Emblemas</h2>
+            <h1>Emblemas</h1>
         </div>
         <div>
+            <div class=" d-flex justify-content-end">
+
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    + Añadir emblema
+                </button>
+            </div>
+
             <table class="table table-striped align-middle">
                 <thead>
                     <tr>
@@ -146,13 +153,7 @@
                     </tr>
                 </tbody>
             </table>
-            <div class=" d-flex justify-content-end">
-
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    + Añadir emblema
-                </button>
-            </div>
-
+            
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
