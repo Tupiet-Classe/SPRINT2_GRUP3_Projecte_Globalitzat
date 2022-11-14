@@ -17,12 +17,9 @@ class Curs
      * @param  mixed $imagenCurso
      * @return void
      */
-    public function __construct($idCurso, $nombreCurso, $descripcionCurso, $imagenCurso)
+    public function __construct($idCurso)
     {
         $this->idCurso = $idCurso;
-        $this->nombreCurso = $nombreCurso;
-        $this->descripcionCurso = $descripcionCurso;
-        $this->imagenCurso = $imagenCurso;
     }
 
     /**
