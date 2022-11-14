@@ -1,5 +1,6 @@
 <?php
 include("../PHP/connexio.php")
+include("../PHP/databaseFunctions.php")
 class Recursos{
     private $idRecurso;
     private $nombreRecurso;

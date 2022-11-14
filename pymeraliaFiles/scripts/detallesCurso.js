@@ -43,5 +43,23 @@ async function asignCourse() {
     }
 }
 
+async function deleteCourse() {
+    let courseID = +id('courseId').innerText
+
+    console.log(courseID)
+
+    let response = await fetch('../PHP/borrarRecursURL.php', {
+        method: 'POST',
+        body: JSON.stringify({
+            courseID
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+
+    
+}
+
 const successToast = new bootstrap.Toast(id('successToast'))
 const errorToast = new bootstrap.Toast(id('errorToast'))
