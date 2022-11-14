@@ -1,8 +1,8 @@
 <?php
 class Valoraciones{
-    private $idValoracion;
-    private $valoracionCurso;
-    private $feedbackCurso;
+    public $idValoracion;
+    public $valoracionCurso;
+    public $feedbackCurso;
 
     /** Constructor de la clase Recursos */    
     /**
@@ -56,7 +56,7 @@ class Valoraciones{
      * @param  mixed $idValoracion
      * @return void
      */
-    private function setIdValoracion($idValoracion){
+    public function setIdValoracion($idValoracion){
         $this->idValoracion = $idValoracion;
     }
 
@@ -67,7 +67,7 @@ class Valoraciones{
      * @param  mixed $valoracionCurso
      * @return void
      */
-    private function setValoracionCurso($valoracionCurso){
+    public function setValoracionCurso($valoracionCurso){
         $this->valoracionCurso = $valoracionCurso;
     }
 
@@ -78,7 +78,7 @@ class Valoraciones{
      * @param  mixed $feedbackCurso
      * @return void
      */
-    private function setFeedbackCurso($feedbackCurso){
+    public function setFeedbackCurso($feedbackCurso){
         $this->$feedbackCurso = $feedbackCurso;
     }
 
@@ -88,7 +88,7 @@ class Valoraciones{
      *
      * @return void
      */
-    private function addValoracion(){
+    public function addValoracion(){
 
     }
 
@@ -98,7 +98,7 @@ class Valoraciones{
      *
      * @return void
      */
-    private function editValoracion(){
+    public function editValoracion(){
 
     }
 
@@ -108,7 +108,7 @@ class Valoraciones{
      *
      * @return void
      */
-    private function deleteValoracion(){
+    public function deleteValoracion(){
 
     }
 
@@ -128,7 +128,7 @@ class Valoraciones{
      *
      * @return void
      */
-    private function assignValoracion(){
+    public function assignValoracion(){
 
     }
 
@@ -138,7 +138,7 @@ class Valoraciones{
      *
      * @return void
      */
-    private function unassignValoracion(){
+    public function unassignValoracion(){
 
     }
 }

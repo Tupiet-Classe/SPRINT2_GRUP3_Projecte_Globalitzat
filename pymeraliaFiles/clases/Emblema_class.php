@@ -1,9 +1,9 @@
 <?php 
 class Emblema {
-  private $idEmblema;
-  private $nombreEmblema;
-  private $descripcionEmblema;
-  private $imagenEmblema;
+  public $idEmblema;
+  public $nombreEmblema;
+  public $descripcionEmblema;
+  public $imagenEmblema;
 
   
   /**
@@ -65,7 +65,7 @@ class Emblema {
    * @param  mixed $idEmblema
    * @return void
    */
-  private function setIdEmblema($idEmblema){
+  public function setIdEmblema($idEmblema){
     $this->idEmblema = $idEmblema;
   }
   
@@ -75,7 +75,7 @@ class Emblema {
    * @param  mixed $nombreEmblema
    * @return void
    */
-  private function setNombreEmblema($nombreEmblema){
+  public function setNombreEmblema($nombreEmblema){
     $this->nombreEmblema = $nombreEmblema;
   }
   
@@ -85,7 +85,7 @@ class Emblema {
    * @param  mixed $descripcionEmblema
    * @return void
    */
-  private function setDescripcionEmblema($descripcionEmblema){
+  public function setDescripcionEmblema($descripcionEmblema){
     $this->descripcionEmblema = $descripcionEmblema;
   }
   
@@ -95,7 +95,7 @@ class Emblema {
    * @param  mixed $imagenEmblema
    * @return void
    */
-  private function setImagenEmblema($imagenEmblema){
+  public function setImagenEmblema($imagenEmblema){
     $this->imagenEmblema = $imagenEmblema;
   }
 
@@ -105,7 +105,7 @@ class Emblema {
    *
    * @return void
    */
-  private function addEmblema(){
+  public function addEmblema(){
 
 }
   
@@ -114,7 +114,7 @@ class Emblema {
    *
    * @return void
    */
-  private function editEmblema(){
+  public function editEmblema(){
 
 }
   
@@ -123,7 +123,7 @@ class Emblema {
    *
    * @return void
    */
-  private function deleteEmblema(){
+  public function deleteEmblema(){
 
 }
   
@@ -141,7 +141,7 @@ class Emblema {
    *
    * @return void
    */
-  private function enableEmlema(){
+  public function enableEmlema(){
 
   }
   
@@ -150,7 +150,7 @@ class Emblema {
    *
    * @return void
    */
-  private function disableEmblema(){
+  public function disableEmblema(){
 
   }
   
@@ -159,7 +159,7 @@ class Emblema {
    *
    * @return void
    */
-  private function assingEmblema(){
+  public function assingEmblema(){
 
   }
   
@@ -168,7 +168,7 @@ class Emblema {
    *
    * @return void
    */
-  private function unassingEmlema(){
+  public function unassingEmlema(){
 
   }
 

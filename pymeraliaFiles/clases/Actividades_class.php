@@ -1,7 +1,7 @@
 <?php
 class Actividades{
-    private $idActividad;
-    private $notaActividad;
+    public $idActividad;
+    public $notaActividad;
 
     /**
      * @param mixed $idActividad
@@ -53,7 +53,7 @@ class Actividades{
      * 
      * @return void
      */
-    private function añadirActividad(){
+    public function añadirActividad(){
 
     }
     /**
@@ -61,7 +61,7 @@ class Actividades{
      * 
      * @return void
      */
-    private function editarActividiad(){
+    public function editarActividiad(){
 
     }
     /**
@@ -69,7 +69,7 @@ class Actividades{
      * 
      * @return void
      */
-    private function eliminarActividad(){
+    public function eliminarActividad(){
 
     }
     /**
@@ -85,7 +85,7 @@ class Actividades{
      * 
      * @return void
      */
-    private function asignarActividad(){
+    public function asignarActividad(){
 
     }
     /**
@@ -93,7 +93,7 @@ class Actividades{
      * 
      * @return void
      */
-    private function desasignarActividad(){
+    public function desasignarActividad(){
 
     }
     /**
@@ -101,7 +101,7 @@ class Actividades{
      * 
      * @return void
      */
-    private function  calcularNotaFinal(){
+    public function  calcularNotaFinal(){
         
     }
 }

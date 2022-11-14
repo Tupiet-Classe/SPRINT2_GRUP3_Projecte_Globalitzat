@@ -1,8 +1,8 @@
 <?php 
 class Qualificacions {
-  private $idQualificacions;
-  private $notaQualificacions;
-  private $descripcionQualificacions;
+  public $idQualificacions;
+  public $notaQualificacions;
+  public $descripcionQualificacions;
 
   
   /**
@@ -55,7 +55,7 @@ class Qualificacions {
    * @param  mixed $idQualificacions
    * @return void
    */
-  private function setIdQualificacions($idQualificacions){
+  public function setIdQualificacions($idQualificacions){
     $this->idQualificacions = $idQualificacions;
   }
   
@@ -65,7 +65,7 @@ class Qualificacions {
    * @param  mixed $notaQualificacions
    * @return void
    */
-  private function setNotaQualificacions($notaQualificacions){
+  public function setNotaQualificacions($notaQualificacions){
     $this->notaQualificacions = $notaQualificacions;
   }
   
@@ -75,7 +75,7 @@ class Qualificacions {
    * @param  mixed $descripcionQualificacions
    * @return void
    */
-  private function setDescripcionQualificacions($descripcionQualificacions){
+  public function setDescripcionQualificacions($descripcionQualificacions){
     $this->descripcionQualificacions = $descripcionQualificacions;
   }
 
@@ -86,7 +86,7 @@ class Qualificacions {
    *
    * @return void
    */
-  private function addQualificacions(){
+  public function addQualificacions(){
 
 }
   
@@ -95,7 +95,7 @@ class Qualificacions {
    *
    * @return void
    */
-  private function editQualificacions(){
+  public function editQualificacions(){
 
 }
   
@@ -104,7 +104,7 @@ class Qualificacions {
    *
    * @return void
    */
-  private function deleteQualificacions(){
+  public function deleteQualificacions(){
 
 }
   

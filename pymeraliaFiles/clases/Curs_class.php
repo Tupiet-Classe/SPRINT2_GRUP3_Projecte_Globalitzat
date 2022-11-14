@@ -1,10 +1,10 @@
 <?php
 class Curs
 {
-    private $idCurso;
-    private $nombreCurso;
-    private $descripcionCurso;
-    private $imagenCurso;
+    public $idCurso;
+    public $nombreCurso;
+    public $descripcionCurso;
+    public $imagenCurso;
 
     /**
      * __construct - Constructor de clase
@@ -238,7 +238,7 @@ class Curs
         $conn->close();
     } 
 
-    private function get_id_from_query($query) {
+    public function get_id_from_query($query) {
         $query->execute();
         
         $result = $query->get_result();

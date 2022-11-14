@@ -1,8 +1,8 @@
 <?php
 include("../PHP/connexio.php")
 class Recursos{
-    private $idRecurso;
-    private $nombreRecurso;
+    public $idRecurso;
+    public $nombreRecurso;
 
     /** Constructor de la clase Recursos */    
     /**
@@ -44,7 +44,7 @@ class Recursos{
      * @param  mixed $idRecurso
      * @return void
      */
-    private function setIdRecurso($idRecurso){
+    public function setIdRecurso($idRecurso){
         $this->idRecurso = $idRecurso;
     }
 
@@ -55,7 +55,7 @@ class Recursos{
      * @param  mixed $nombreRecurso
      * @return void
      */
-    private function setNombreRecurso($nombreRecurso){
+    public function setNombreRecurso($nombreRecurso){
         $this->nombreRecurso = $nombreRecurso;
     }
 
@@ -65,7 +65,7 @@ class Recursos{
      *
      * @return void
      */
-    private function addRecursos(){
+    public function addRecursos(){
 
     }
 
@@ -75,7 +75,7 @@ class Recursos{
      *
      * @return void
      */
-    private function editRecursos(){
+    public function editRecursos(){
 
     }
 
@@ -85,11 +85,8 @@ class Recursos{
      *
      * @return void
      */
-    private function papeleraRecursos($tblname,$field_id,$id){
-        $paperera = "SELECT Ocult FROM recursosURL";
-        if($paperera is true){
-            "UPDATE recursos SET paperera = false WHERE Id = id element(agafar la id del recurs)";
-        }
+    public function papeleraRecursos($tblname,$field_id,$id){
+        $today = date("m-d-y");  
     }
 
     /** Método que elimina un recurso existente */    
@@ -98,7 +95,7 @@ class Recursos{
      *
      * @return void
      */
-    private function deleteRecursos($tblname,$field_id,$id){
+    public function deleteRecursos($tblname,$field_id,$id){
 
         $sql = "DELETE from ".$tblname." WHERE ".$field_id."=".$id."";
         
@@ -121,7 +118,7 @@ class Recursos{
      *
      * @return void
      */
-    private function assignRecurso(){
+    public function assignRecurso(){
 
     }
 
@@ -131,7 +128,7 @@ class Recursos{
      *
      * @return void
      */
-    private function unassignRecurso(){
+    public function unassignRecurso(){
 
     }
 }
