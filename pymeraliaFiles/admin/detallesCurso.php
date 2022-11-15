@@ -154,135 +154,68 @@ include("../clases/Curs_class.php");
             </div>
         </aside>
 
-        <?php
-        $curs = New Curs(1);
-        $curs -> showAllRecursos();
-
-?>
+        
         <div class="course container col-lg-8 col-xxl-9 p-5">
             <h1 id="course-title">La ciberseguridad es importante</h1>
-           
-            <div class="course-element text ">
-                <a >
-                    <div class = "d-flex justify-content-end h5 ">
-                        
-                        <div class="btn-group dropstart">
-                            <button type="button" class="fas fa-ellipsis-v ps-2 pe-2" data-bs-toggle="dropdown" aria-expanded="false"></button>
-                            <ul class="dropdown-menu">
-                                <li><button type="button" ><i class="fas fa-trash-alt"></i>Eliminar</button></li>
-                                <button ><i class="fas fa-edit"></i>Editar</button>
-                                
-                            </ul>
-                          </div>
-                    </div>
+            <?php
+        $curs = New Curs(1);
+        $resultat = $curs -> showAllRecursosURL();
+        foreach ($resultat as $row){
+            
+            echo "           
+             <div class='course-element text'>
 
-                </a>
-                <h4>La ciberseguridad</h4>
-                <p>La seguridad informática, también conocida como ciberseguridad, es el
-                    área relacionada con la informática y la telemática que se enfoca en la protección de la
-                    infraestructura computacional y todo lo vinculado con la misma, y especialmente la
-                    información contenida en una computadora o circulante a través de las redes de
-                    computadoras.2 Para ello existen una serie de estándares, protocolos, métodos, reglas,
-                    herramientas, y leyes concebidas para minimizar los posibles riesgos a la infraestructura
-                    y/o a la propia información. La ciberseguridad comprende software (bases de datos,
-                    metadatos, archivos), hardware, redes de computadoras, y todo lo que la organización
-                    entienda y valore como un riesgo si la información confidencial involucrada pudiera
-                    llegar a manos de otras personas, por ejemplo, convirtiéndose así en información privilegiada.</p>
-            </div>
+             <div class='d-flex justify-content-between h5' ><h4 >$row[name]</h4><button type='button' class='fas fa-ellipsis-v ps-2 pe-2 flex-row-reverse'  data-bs-toggle='dropdown' aria-expanded='false'></button>
+             <ul class='dropdown-menu'>
+                 <li><button type='button' ><i class='fas fa-trash-alt'></i>Eliminar</button></li>
+                 <a class='btn btn-primary' data-bs-toggle='modal' href='#modal_$row[type]_$row[id_course]' role='button'>Open first modal</a>
+                                  
+             </ul> 
+             </div>";
 
-            <div class="course-element text">
-                <a >
-                    <div class = "d-flex justify-content-end h5 ">
-                        
-                        <div class="btn-group dropstart">
-                            <button type="button" class="fas fa-ellipsis-v ps-2 pe-2" data-bs-toggle="dropdown" aria-expanded="false"></button>
-                            <ul class="dropdown-menu">
-                                <li><button type="button" ><i class="fas fa-trash-alt"></i>Eliminar</button></li>
-                                <button ><i class="fas fa-edit"></i>Editar</button>
-                                
-                            </ul>
-                          </div>
-                    </div>
 
-                </a>
-                <h4>La importancia de la Ciberseguridad</h4>
-                <p>El crecimiento global de las redes y la información, impulsado por la innovación
-                    tecnológica, ha permitido a la sociedad crear prosperidad y mejorar la calidad de vida.
-                    Sin embargo, este rápido cambio ha generado también un desafío de largo plazo: gestionar
-                    los riesgos de seguridad a medida que el mundo depende cada vez más de la cibernética y las amenazas
-                    aumentan.</p>
-                <p>Los líderes empresariales internacionales calificaron las amenazas cibernéticas como uno de los
-                    principales
-                    riesgos
-                    de negocios de acuerdo con los resultados obtenidos en la 21a Encuesta Global de CEO de PwC.</p>
-            </div>
+             
+            if ($row['type']=='url'){
 
-            <div class="course-element d-flex justify-content-center flex-column">
-                <a >
-                    <div class = "d-flex justify-content-end h5 ">
-                        
-                        <div class="btn-group dropstart">
-                            <button type="button" class="fas fa-ellipsis-v ps-2 pe-2" data-bs-toggle="dropdown" aria-expanded="false"></button>
-                            <ul class="dropdown-menu">
-                                <li><button type="button" ><i class="fas fa-trash-alt"></i>Eliminar</button></li>
-                                <button ><i class="fas fa-edit"></i>Editar</button>
-                                
-                            </ul>
-                          </div>
-                    </div>
+                echo" <a href=$row[location_or_description] >$row[location_or_description]</a>";
+            }elseif ($row['type']=='file'){
 
-                </a>
-                <h4>Tutorial sobre ciberseguridad</h4>
-                <video class="video" width="100%" height="400">
-                    <source src="../Video/video.mp4">
-                </video>
+                echo" <a class='orange-button' href='$row[location_or_description]' download >$row[name]</a>";
+                
+            }
+            else{
+                echo " <p contenteditable> $row[location_or_description]</p>";
 
-                <div class="d-flex justify-content-center mt-3">
-                    <button class="orange-button" onclick="playVid()">Play</button>
-                    <button class="orange-button" onclick="pauseVid()">Pause</button>
-                </div>
-            </div>
+            }
+            
+                echo"<div class=\"modal fade\" id=\"modal_$row[type]_$row[id_course]\" aria-hidden=\"true\" aria-labelledby=\"exampleModalToggleLabel\" tabindex=\"-1\">"
+                . " <div class=\"modal-dialog modal-dialog-centered\">"
+                . "   <div class=\"modal-content\">"
+                . "     <div class=\"modal-header\">"
+                . "       <h1 class=\"modal-title fs-5\" id=\"exampleModalToggleLabel\">Modal 1</h1>"
+                . "       <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>"
+                . "     </div>"
+                . "     <div class=\"modal-body\">"
+                . "       $row[name]"
+                . "     </div>"
+                . "     <div class=\"modal-footer\">"
+                . "       <button class=\"btn btn-primary\" data-bs-target=\"#exampleModalToggle2\" data-bs-toggle=\"modal\">Guardar</button>"
+                . "       <button class=\"btn btn-secondary\" data-bs-target=\"#exampleModalToggle2\" data-bs-toggle=\"modal\">Cancelar</button>"
+                . "     </div>"
+                . "   </div>"
+                . " </div>"
+                . "/div>"
+                ."";
+            
+            echo "</div>"; 
+            
+            
 
-            <div class="course-element file">
-                <a >
-                    <div class = "d-flex justify-content-end h5 ">
-                        
-                        <div class="btn-group dropstart">
-                            <button type="button" class="fas fa-ellipsis-v ps-2 pe-2" data-bs-toggle="dropdown" aria-expanded="false"></button>
-                            <ul class="dropdown-menu">
-                                <li><button type="button" ><i class="fas fa-trash-alt" onclick=""></i>Eliminar</button></li>
-                                <button ><i class="fas fa-edit"></i>Editar</button>
-                                
-                            </ul>
-                          </div>
-                    </div>
+          };
+        
 
-                </a>
-                <h4>Información adicional</h4>
-                <p>Este documento es importante porque incluye más información</p>
-                <!-- Boton para Descargar actividad-->
-                <a class="orange-button" href="../actividades/file.doc" download="GFG">Descargar documento</a>
-            </div>
-
-            <div class="course-element activity">
-                <a >
-                    <div class = "d-flex justify-content-end h5 ">
-                        
-                        <div class="btn-group dropstart">
-                            <button type="button" class="fas fa-ellipsis-v ps-2 pe-2" data-bs-toggle="dropdown" aria-expanded="false"></button>
-                            <ul class="dropdown-menu">
-                                <li><button type="button" ><i class="fas fa-trash-alt"></i>Eliminar</button></li>
-                                <button ><i class="fas fa-edit"></i>Editar</button>
-                                
-                            </ul>
-                          </div>
-                    </div>
-
-                </a>
-                <h4>Protégete de los ataques</h4>
-                <p>¿Estás listo? Aquí tienes una actividad a realizar para ver si estás listo.</p>
-                <a class="orange-button">Realizar actividad</a>
-            </div>
+?>
+    
         </div>
     </main>
 

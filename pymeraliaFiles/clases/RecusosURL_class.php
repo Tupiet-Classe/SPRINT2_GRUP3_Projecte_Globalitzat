@@ -117,6 +117,19 @@ class Recursos{
         $db=db_query($sql);
         return $db;
     }
+    function edit($form_data){
+        $sql = "UPDATE resources_url SET ";
+        $data = array();
+    
+        foreach($form_data as $column=>$value){
+    
+            $data[] =$column."="."'".$value."'";
+    
+        }
+        $sql .= implode(',',$data);
+        $sql.=" where id_resource_url = $this -> idRecurso";
+        return db_query($sql); 
+    }
 
     /** Método que asigna un recurso */    
     /**
