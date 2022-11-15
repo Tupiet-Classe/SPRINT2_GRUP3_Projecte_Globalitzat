@@ -158,8 +158,9 @@ include("../clases/Curs_class.php");
         <div class="course container col-lg-8 col-xxl-9 p-5">
             <h1 id="course-title">La ciberseguridad es importante</h1>
             <?php
-        $curs = New Curs(1);
-        $resultat = $curs -> showAllRecursosURL();
+            
+        $curs = new Curs(1);
+        $resultat = $curs->showAllRecursosURL();
         foreach ($resultat as $row){
             
             echo "           
@@ -167,7 +168,7 @@ include("../clases/Curs_class.php");
 
              <div class='d-flex justify-content-between h5' ><h4 >$row[name]</h4><button type='button' class='fas fa-ellipsis-v ps-2 pe-2 flex-row-reverse'  data-bs-toggle='dropdown' aria-expanded='false'></button>
              <ul class='dropdown-menu'>
-                 <li><button type='button' ><i class='fas fa-trash-alt'></i>Eliminar</button></li>
+                 <li><button type='button' onclick='redirectPHP()'><i class='fas fa-trash-alt'></i>Eliminar</button></li>
                  <a class='btn btn-primary' data-bs-toggle='modal' href='#modal_$row[type]_$row[id_course]' role='button'>Open first modal</a>
                                   
              </ul> 
@@ -185,9 +186,6 @@ include("../clases/Curs_class.php");
             }
             else{
                 echo " <p contenteditable> $row[location_or_description]</p>";
-
-            }
-            
                 echo"<div class=\"modal fade\" id=\"modal_$row[type]_$row[id_course]\" aria-hidden=\"true\" aria-labelledby=\"exampleModalToggleLabel\" tabindex=\"-1\">"
                 . " <div class=\"modal-dialog modal-dialog-centered\">"
                 . "   <div class=\"modal-content\">"
@@ -206,6 +204,9 @@ include("../clases/Curs_class.php");
                 . " </div>"
                 . "/div>"
                 ."";
+            }
+            
+                
             
             echo "</div>"; 
             
@@ -303,6 +304,7 @@ include("../clases/Curs_class.php");
 
     <script src="../scripts/detallesCurso.js"></script>
 
+    <script src="../scripts/borrarURL.js" ></script>
     <script>
 
 
