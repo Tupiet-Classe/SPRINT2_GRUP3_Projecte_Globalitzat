@@ -93,87 +93,78 @@
         </div>
         <div>
             <div class=" d-flex justify-content-end">
-
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" class="orange-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     + Añadir emblema
                 </button>
             </div>
                 <?php
 
+                include_once '../clases/Emblema_class.php';
+                $emblema = New Emblema(1);
+                
+                $emblemas = $emblema->showEmblema();
+
+                if($emblemas != false){
+                    echo
+                    '<table class="table table-striped align-middle">',
+                    '<thead>',
+                        '<tr>',
+                            '<th scope="col">Emblemas</th>',
+                            '<th scope="col">Medalla</th>',
+                            '<th scope="col">Opciones</th>',
+                        '</tr>',
+                    '</thead>',
+                    '<tbody>';
+                
+                    foreach($emblemas as $key => $emblema){
+                    echo 
+                    '<tr>'.
+                        '<td>' . $emblema['name_emblem'] . '</td>' .
+                            '<td>' . '<img src= "' . $emblema['image'] . '" width="40" height="40">' .'</td>' .
+                            '<td>' .'<button type="button">' . '<img src="../images/botons/edit.png">' . '</button>' . '<button type="button"
+                                class="ms-4">' . '<img src="../images/botons/delete.png">' . '</button>' . '</td>' . 
+                        '</tr>';
+                    }
+                    echo
+                        '</tbody>',
+                    '</table>';
+                }
+                    else{
+                        echo '<h6>No hay emblemas para tus cursos.</h6>';
+                        
+                    }
+                    echo"<div class=\"modal fade\" id=\"exampleModal\" tabindex=\"-1\" aria-labelledby=\"exampleModalLabel\""
+                    . "               aria-hidden=\"true\">"
+                    . "               <div class=\"modal-dialog modal-dialog-centered\">"
+                    . "                   <div class=\"modal-content\">"
+                    . "                       <div class=\"modal-header\">"
+                    . "                           <h1 class=\"modal-title fs-5\" id=\"exampleModalLabel\">Añadir un emblema</h1>"
+                    . "                           <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>"
+                    . "                       </div>"
+                    . "                       <div class=\"modal-body\">"
+                    . "                           <p class=\"h3 mb-3 text-start\">Emblema</p>"
+                    . "                           <div class=\"input-group\">"
+                    . "                               "
+                    . "                           <input type=\"file\" class=\"form-control\" id=\"inputGroupFile04\""
+                    . "                                   aria-describedby=\"inputGroupFileAddon04\" aria-label=\"Upload\">"
+                    . "                           </div>"
+                    . "                       </div>"
+                    . "                       <div class=\"modal-footer\">"
+                    . "                           <button type=\"button\" class=\"btn btn-danger\" data-bs-dismiss=\"modal\">Cancelar</button>"
+                    . "                           <button type=\"button\" class=\"btn btn-success\">+ Añadir</button>"
+                    . "                       </div>"
+                    . "                   </div>"
+                    . "               </div>"
+                    . "           </div>"
+                   ."";
                 
 
+
                 ?>
-            <table class="table table-striped align-middle">
-                <thead>
-                    <tr>
-                        <th scope="col">Emblemas</th>
-                        <th scope="col">Medalla</th>
-                        <th scope="col">Opciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Curso 1</td>
-                        <td><img src="../images/emblemas/1.png" alt="emblema1" width="40" height="40"></td>
-                        <td><button type="button"><img src="../images/botons/edit.png"></button><button type="button"
-                                class="ms-4"><img src="../images/botons/delete.png"></button></td>
-                    </tr>
-                    <tr>
-                        <td>Curso 2</td>
-                        <td><img src="../images/emblemas/2.png" alt="emblema2" width="40" height="40"></td>
-                        <td><button type="button"><img src="../images/botons/edit.png"></button><button type="button"
-                                class="ms-4"><img src="../images/botons/delete.png"></button></td>
-                    </tr>
-                    <tr>
-                        <td>Curso 3</td>
-                        <td><img src="../images/emblemas/3.png" alt="emblema3" width="40" height="40"></td>
-                        <td><button type="button"><img src="../images/botons/edit.png"></button><button type="button"
-                                class="ms-4"><img src="../images/botons/delete.png"></button></td>
-                    </tr>
-                    <tr>
-                        <td>Curso 4</td>
-                        <td><img src="../images/emblemas/4.png" alt="emblema4" width="40" height="40"></td>
-                        <td><button type="button"><img src="../images/botons/edit.png"></button><button type="button"
-                                class="ms-4"><img src="../images/botons/delete.png"></button></td>
-                    </tr>
-                    <tr>
-                        <td>Curso 5</td>
-                        <td><img src="../images/emblemas/5.png" alt="emblema5" width="40" height="40"></td>
-                        <td><button type="button"><img src="../images/botons/edit.png"></button><button type="button"
-                                class="ms-4"><img src="../images/botons/delete.png"></button></td>
-                    </tr>
-                    <tr>
-                        <td>Curso 6</td>
-                        <td><img src="../images/emblemas/6.png" alt="emblema6" width="40" height="40"></td>
-                        <td><button type="button"><img src="../images/botons/edit.png"></button><button type="button"
-                                class="ms-4"><img src="../images/botons/delete.png"></button></td>
-                    </tr>
-                </tbody>
-            </table>
+         
             
             <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Añadir un emblema</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <p class="h3 mb-3 text-start">Emblema</p>
-                            <div class="input-group">
-                                <input type="file" class="form-control" id="inputGroupFile04"
-                                    aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-success">+ Añadir</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </div>
     <footer class="bg-black text-center text-lg-center mt-auto">
