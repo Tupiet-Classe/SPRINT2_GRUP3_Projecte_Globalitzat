@@ -86,46 +86,18 @@
     </header>
 
 <body>
-            <div class="drop-area" id="contenedor1">
-                <h2>Arrastra y suelta tus archivos</h2>
-                <span>O</span>
-                <button>Selecciona tus archivos</button>
-                <input type="file" name="" id="input-file" hidden multiple />
-                <div>
-                    <button id="BotonEnviar">Enviar archivos</button>
-                </div>
-                    <div id="Caixeta1">
-                        <div class="accordion pb-3" id="accordionFlushExample">
-                            <div class="accordion-item">
-                                <h2>
-                                    <button type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                        Editar archivo
-                                    </button>
-                                </h2> 
-                                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-                                    data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body">
-                                        <div>
-                                            <table class="table table-striped align-middle">
-                                                <thead>
-                                                    <tr>
-                                                        <button id="Button1"><b>Canviar nombre</b></button>
-                                                        <button id="Button2"><b>Suprimir</b></button>
-                                                        
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                   
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            </div>
+
+<div class="contenedor" id="contenedor1">
+    <h2>Creació nou recurs</h2>
+    <form action="insertar.php" class="form-register" method="post" enctype="multipart/form-data">
+        <h1 class="form__title">Introduce los archivos</h1>
+        <input type="file" name="archivo" class="form__file" required>
+        <input type="submit" class="form__submit">
+    
+    </form>      
+
+</div>
+
 </body>
    
 <footer class="bg-black text-center text-lg-center mt-auto">
