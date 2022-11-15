@@ -228,6 +228,28 @@ class Curs
         $conn->close();
     }
 
+    public static function get_all_courses() {
+        include_once '../PHP/connexio.php';
+        // Recuperem tots els cursos
+        $selectQuery = $conn->prepare('SELECT id_course, name_course, description_course, image, hidden');
+        $selectQuery->execute();
+
+        // Retornem tots els cursos
+        return $selectQuery->get_result();
+    }
+
+    public static function get_all_non_hidden_courses() {
+        include_once '../PHP/connexio.php';
+        // Recuperem tots els cursos
+        $selectQuery = $conn->prepare('SELECT id_course, name_course, description_course, image FROM courses WHERE hidden is not null');
+        $selectQuery->execute();
+
+        // Guardem el resultat
+        $result = $selectQuery->get_result();
+
+        return $result->num_rows ? $result : false;
+    }
+
     public function get_users_from_course() {
         include_once '../PHP/connexio.php';
 
