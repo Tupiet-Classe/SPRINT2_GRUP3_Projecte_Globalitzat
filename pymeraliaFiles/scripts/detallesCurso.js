@@ -3,6 +3,7 @@ let id = id => document.getElementById(id)
 let btn = id('btn-add-user')
 let form = id('addUserForm')
 let modal = new bootstrap.Modal(id('addUser'))
+let editModal = new bootstrap.Modal(id('edit-user-modal'))
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -57,8 +58,18 @@ async function deleteCourse() {
             'Content-Type': 'application/json'
         }
     })
+}
 
-    
+function showEditModal(resourceId, type) {
+    let primary = id('resource-primary-' + type + '-' + resourceId)
+    let secondary = id('resource-secondary-' + type + '-' + resourceId)
+
+    id('edit-user-modal-primary').value = primary.innerText
+    id('edit-user-modal-secondary').value = secondary.innerText
+
+    id('edit-user-modal-secondary-label').innerText = (type == 'text') ? 'Descripció' : 'Ubicació'
+
+    editModal.show()
 }
 
 const successToast = new bootstrap.Toast(id('successToast'))

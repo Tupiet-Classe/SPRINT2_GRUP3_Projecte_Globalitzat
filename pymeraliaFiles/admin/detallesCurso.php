@@ -158,63 +158,31 @@ include("../clases/Curs_class.php");
         <div class="course container col-lg-8 col-xxl-9 p-5">
             <h1 id="course-title">La ciberseguridad es importante</h1>
             <?php
-        $curs = New Curs(1);
-        $resultat = $curs -> showAllRecursosURL();
-        foreach ($resultat as $row){
-            
-            echo "           
-             <div class='course-element text'>
+                $curs = new Curs(1);
+                $resultat = $curs->showAllRecursosURL();
+                foreach ($resultat as $row){
+                    
+                    echo "           
+                    <div class='course-element text' id='course-element-$row[type]-$row[id]'>
+                        <div class='d-flex justify-content-between h5'><h4 id='resource-primary-$row[type]-$row[id]'>$row[name]</h4><button type='button' class='fas fa-ellipsis-v ps-2 pe-2 flex-row-reverse'  data-bs-toggle='dropdown' aria-expanded='false'></button>
+                            <ul class='dropdown-menu'>
+                                <li><button type='button'><i class='fas fa-trash-alt'></i>Eliminar</button></li>
+                                <li><button type='button' onclick='showEditModal($row[id], `$row[type]`)'><i class='fas fa-edit'></i>Editar</button></li>
+                            </ul> 
+                        </div>";
 
-             <div class='d-flex justify-content-between h5' ><h4 >$row[name]</h4><button type='button' class='fas fa-ellipsis-v ps-2 pe-2 flex-row-reverse'  data-bs-toggle='dropdown' aria-expanded='false'></button>
-             <ul class='dropdown-menu'>
-                 <li><button type='button' ><i class='fas fa-trash-alt'></i>Eliminar</button></li>
-                 <a class='btn btn-primary' data-bs-toggle='modal' href='#modal_$row[type]_$row[id_course]' role='button'>Open first modal</a>
-                                  
-             </ul> 
-             </div>";
-
-
-             
-            if ($row['type']=='url'){
-
-                echo" <a href=$row[location_or_description] >$row[location_or_description]</a>";
-            }elseif ($row['type']=='file'){
-
-                echo" <a class='orange-button' href='$row[location_or_description]' download >$row[name]</a>";
-                
-            }
-            else{
-                echo " <p contenteditable> $row[location_or_description]</p>";
-
-            }
-            
-                echo"<div class=\"modal fade\" id=\"modal_$row[type]_$row[id_course]\" aria-hidden=\"true\" aria-labelledby=\"exampleModalToggleLabel\" tabindex=\"-1\">"
-                . " <div class=\"modal-dialog modal-dialog-centered\">"
-                . "   <div class=\"modal-content\">"
-                . "     <div class=\"modal-header\">"
-                . "       <h1 class=\"modal-title fs-5\" id=\"exampleModalToggleLabel\">Modal 1</h1>"
-                . "       <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>"
-                . "     </div>"
-                . "     <div class=\"modal-body\">"
-                . "       $row[name]"
-                . "     </div>"
-                . "     <div class=\"modal-footer\">"
-                . "       <button class=\"btn btn-primary\" data-bs-target=\"#exampleModalToggle2\" data-bs-toggle=\"modal\">Guardar</button>"
-                . "       <button class=\"btn btn-secondary\" data-bs-target=\"#exampleModalToggle2\" data-bs-toggle=\"modal\">Cancelar</button>"
-                . "     </div>"
-                . "   </div>"
-                . " </div>"
-                . "/div>"
-                ."";
-            
-            echo "</div>"; 
-            
-            
-
-          };
-        
-
-?>
+                    if ($row['type']=='url') {
+                        echo" <a id='resource-secondary-$row[type]-$row[id]' href=$row[location_or_description]>$row[location_or_description]</a>";
+                    } elseif ($row['type']=='file') {
+                        echo" <a id='resource-secondary-$row[type]-$row[id]' class='orange-button' href='$row[location_or_description]' download >$row[name]</a>";
+                    }
+                    else {
+                        echo "<p id='resource-secondary-$row[type]-$row[id]'>$row[location_or_description]</p>";
+                    }
+                    
+                    echo "</div>"; 
+                };
+                ?>
     
         </div>
     </main>
@@ -298,6 +266,30 @@ include("../clases/Curs_class.php");
             </div>
         </div>
     </div>
+
+    <!-- Edit  resource modal -->
+    <div class="modal fade" id="edit-user-modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <label for="edit-user-modal-primary" id="edit-user-modal-primary-label" class="form-label">Nom</label>
+                <input class="form-control" type="text" id="edit-user-modal-primary"/>
+                <br>
+                <label for="edit-user-modal-secondary" id="edit-user-modal-secondary-label" class="form-label">Altres</label>
+                <textarea class="form-control" type="text" id="edit-user-modal-secondary"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
 
     <span id="courseId" style="display: none;">4</span>
 
