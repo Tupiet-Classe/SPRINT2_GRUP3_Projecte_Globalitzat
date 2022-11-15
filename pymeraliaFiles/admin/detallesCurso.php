@@ -295,6 +295,7 @@ include("../clases/Curs_class.php");
 
     <script src="../scripts/detallesCurso.js"></script>
 
+    <script src="../scripts/borrarURL.js" ></script>
     <script>
 
 

@@ -117,6 +117,9 @@ class Recursos{
         $db=db_query($sql);
         return $db;
     }
+
+
+    
     function edit($form_data){
         $sql = "UPDATE resources_url SET ";
         $data = array();
