@@ -84,44 +84,30 @@
     </header><!--header-->
 
     <main>
-      <!--Eliminar este formulario despues de la presentacion del Sprint 1-->
-      <div class="formularioPrueba" style="margin-left: 30px;">
-        <p>Introducir una de las 3 opciones: curso_1, curso_2, curso_3</p>
-        <input type="text" id="formulari">
-        <button type="submit" class="btn btn-secondary btn-sm" onclick="activarCurso()" value="enviar">Activar</button>
-        <button type="submit" class="btn btn-secondary btn-sm" onclick="desactivarCurso()" value="enviar">Desactivar</button>
-      </div>
-        
-        <div class="row justify-content-evenly" id="contenedor-cursos">
+        <h1 class="text-center">Listado de cursos</h3>
 
-          <div class="col-12 card vista-curso" id="curso_1" style="width: 18rem;">
-            <img src="../images/imagenes-curso/cyber-security-protection-firewall-interface-concept (1) (1).jpg" class="card-img-top" alt="imagen seguridad empresa">
-            <div class="card-body">
-              <h5 class="card-title">Ciberseguridad para empresas</h5>
-              <p class="card-text">Curso de ciberseguridad orientado a empresas que quieran reforzar o implementar seguridad.</p>
-              <a href="detallesCurso.html"><button class="btn btn-primary">Ir al Curso</button></a>
-            </div>
-          </div><!--.curso-no-comprado-->
+      <?php
+      include_once '../clases/Curs_class.php';
+      $cursos = Curs::get_all_non_hidden_courses();
+      
+      if ($cursos) {
+        echo'<div class="row justify-content-evenly" id="contenedor-cursos">';
 
-          <div class="col-12 card vista-curso curso-no-comprado" style="width: 18rem;" id="curso_2">
-            <img src="../images/imagenes-curso/ciberseguridad-para-pymes-y-autonomos.jpg" class="card-img-top" alt="imagen seguridad autónomos">
-            <div class="card-body">
-              <h5 class="card-title">Ciberseguridad para autónomos</h5>
-              <p class="card-text">Curso de ciberseguridad orientado a autónomos que quieran reforzar o implementar seguridad en su negocio.</p>
-              <a href="detallesCurso.html"><button class="btn btn-primary">Ir al Curso</button></a>
-            </div>
-          </div><!--.curso-no-comprado-->
+        foreach ($cursos as $curso) {
+            echo 
+                '<div class="col-12 card vista-curso" style="width: 18rem;">',
+                    '<img src="../images/imagenes-curso/' . $curso['image'] . '" class="card-img-top" alt="imagen seguridad empresa">',
+                    '<div class="card-body">',
+                        '<h5 class="card-title">' . $curso['name_course'] . '</h5>',
+                        '<p class="card-text">' . $curso['description_course'] .'</p>',
+                        '<a href="detallesCurso.php?courseid=' . $curso['id_course'] . '"><button class="btn btn-primary">Ir al Curso</button></a>',
+                    '</div>',
+                '</div>';
+        }
 
-          <div class="col-12 card vista-curso curso-no-comprado" style="width: 18rem;" id="curso_3">
-            <img src="../images/imagenes-curso/contraseña.png" class="card-img-top" alt="imagen seguridad contraseñas">
-            <div class="card-body">
-              <h5 class="card-title">Política de contraseñas</h5>
-              <p class="card-text">Curso orientado a persona que quieran implementar una política de contraseñas seguras en su negocio/empresa.</p>
-              <a href="detallesCurso.html"><button class="btn btn-primary">Ir al Curso</button></a>
-            </div>
-          </div><!--.curso-no-comprado-->
-          
-        </div>
+        echo '</div>';
+      } 
+      ?>
     </main><!--Contenido-->
     
   </body>
