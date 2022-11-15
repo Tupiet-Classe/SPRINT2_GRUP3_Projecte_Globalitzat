@@ -1,6 +1,7 @@
 <?php 
 include("../PHP/connexio.php");
 include("../PHP/databaseFunctions.php");
+
 class Emblema {
   private $idEmblema;
   private $nombreEmblema;
@@ -18,11 +19,8 @@ class Emblema {
    * @param  mixed $imagenEmblema
    * @return void
    */
-  public function __construct($idEmblema, $nombreEmblema, $descripcionEmblema, $imagenEmblema){
+  public function __construct($idEmblema){
     $this->idEmblema = $idEmblema;
-    $this->nombreEmlema = $nombreEmblema;
-    $this->descripcionEmblema = $descripcionEmblema;
-    $this->imagenEmblema = $imagenEmblema;
   }
   
   /**
@@ -108,10 +106,10 @@ class Emblema {
    *
    * @return void
    */
-  /*public function addEmblema(){
-    $sql = "INSERT FROM WHERE ";
+  public function addEmblema(){
+    $sql = "INSERT name_emblem,image VALUES('','') ";
     $db = db_query();
-  }*/
+  }
 
   
   /**
