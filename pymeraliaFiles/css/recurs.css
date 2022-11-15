@@ -1,103 +1,72 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat';
+.contenedor {
+   
+    align-items: center;
 }
 
-body{
+#contenedor1 {
+    margin-top: 2%;
+    margin-left: 30%;
+}
+
+body {
+    margin: 0;
+    background: white;
     display: flex;
     justify-content: center;
     min-height: 100vh;
 }
 
-#contenedor1{
-    margin-left:23%
-
-
+.form-register {
+    width: 95%;
+    max-width: 500px;
+    background: rgb(201, 187, 187); /*Color del recuadre on es selecciona l'arxiu*/
+    padding: 20px;
 }
 
-#Button1{
-    background-color: #FF6720;
-    width: 180px;
-    height: 40px;
+.form__title {
+    margin-top: 0;
+    font-size: 1.7em;
     text-align: center;
-    font-size: medium;
-    
 }
 
-
-#Button2{
-    background-color:#FF6720;
-    width: 120px;
-    height: 40px;
-    text-align: center;
-    font-size: medium;
-    margin-left: 65%;
+.form__label, .form__input {
+    display: block;
 }
 
+.form__label {
+    width: 30%;
+}
 
+.form__input {
+    width: 70%;
+    padding: 10px;
+    font-size: 1em;
+}
 
-.drop-area{
-    border: 5px dashed #ddd;
-    height: 500px;
-    width: 700px;
-    border-radius: 5px;
+.form__file {
+    font-size: 1em;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.container--flex {
     display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
 }
 
-.dr-area.active{
-    background-color: #b8d4fe;
-    color: black;
-    border: 2px dashed #b8fab8
-
-}
-
-.drop-area h2{
-    font-size: 30px;
-    font-weight: 500;
-    color: #000;
-}
-
-.drop-area span{
-    font-size: 25px;
-    color: #000;
-}
-
-.drop-area button{
-    padding: 10px 25px;
-    font-size: 20px;
-    border: 0;
-    outline: none;
-    background-color: #5256ad;
+.form__submit {
+    width: 100%;
+    background: orangered;
+    padding: 10px;
+    border: none;
     color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 20px;
-}
-
-.file-container{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border: solid 1px #ddd;
-}
-
-#preview{
+    font-size: 1em;
     margin-top: 10px;
+    cursor: pointer;
 }
 
-.status-text{
-    padding: 0 10px;
-}
-
-.success{
-    color: #52ad5a;
-}
-
-.failure{
-    color: #ff0000;
+#form1 {
+    align-items: center;
 }

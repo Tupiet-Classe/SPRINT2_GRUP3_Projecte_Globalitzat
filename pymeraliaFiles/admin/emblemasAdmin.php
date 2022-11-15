@@ -94,13 +94,48 @@
         <div>
             <div class=" d-flex justify-content-end">
 
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" class="orange-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     + Añadir emblema
                 </button>
             </div>
                 <?php
 
+                include_once '../clases/Emblema_class.php';
+                $emblema = New Emblema(1);
                 
+                $emblemas = $emblema->showEmblema();
+
+                if($emblemas != false){
+                    echo
+                    '<table class="table table-striped align-middle">',
+                    '<thead>',
+                        '<tr>',
+                            '<th scope="col">Emblemas</th>',
+                            '<th scope="col">Medalla</th>',
+                            '<th scope="col">Opciones</th>',
+                        '</tr>',
+                    '</thead>',
+                    '<tbody>';
+                
+                    foreach($emblemas as $emblema){
+                    echo 
+                    '<tr>
+                        <td>Curso 1</td>
+                            <td><img src="../images/emblemas/1.png" alt="emblema1" width="40" height="40"></td>
+                            <td><button type="button"><img src="../images/botons/edit.png"></button><button type="button"
+                                class="ms-4"><img src="../images/botons/delete.png"></button></td>
+                        </tr>';
+                    }
+                    echo
+                        '</tbody>',
+                    '</table>';
+                }
+                    else{
+                        echo '<h6>No hay emblemas para tus cursos.</h6>';
+                    }
+
+                
+
 
                 ?>
             <table class="table table-striped align-middle">
