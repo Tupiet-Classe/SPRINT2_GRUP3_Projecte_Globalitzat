@@ -228,6 +228,15 @@ class Curs
         $conn->close();
     }
 
+    /*
+    * Preguntar tema crides AJAX (estil API), si puc usar-les o no
+    * Preguntar també ús classe Validate amb mètodes estàtics a MirMeet
+    */
+
+    public static function get_all_courses() {
+        include_once '../PHP/connexio.php';
+    }
+
     public function get_users_from_course() {
         include_once '../PHP/connexio.php';
 
