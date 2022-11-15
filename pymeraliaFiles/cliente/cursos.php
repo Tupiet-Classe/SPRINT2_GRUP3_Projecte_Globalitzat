@@ -96,7 +96,7 @@
         foreach ($cursos as $curso) {
             echo 
                 '<div class="col-12 card vista-curso" style="width: 18rem;">',
-                    '<img src="../images/imagenes-curso/' . $curso['image'] . '" class="card-img-top" alt="imagen seguridad empresa">',
+                    '<img src="../images/imagenes-curso/' . $curso['image'] . '" class="card-img" alt="imagen seguridad empresa">',
                     '<div class="card-body">',
                         '<h5 class="card-title">' . $curso['name_course'] . '</h5>',
                         '<p class="card-text">' . $curso['description_course'] .'</p>',
