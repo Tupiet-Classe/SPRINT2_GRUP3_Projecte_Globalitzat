@@ -3,7 +3,8 @@ include("../PHP/connexio.php");
 include("../PHP/databaseFunctions.php");
 class Recursos{
     private $idRecurso;
-    private $nombreRecurso;
+    private $titulo;
+    private $descripcion;
     private $type;
 
     /** Constructor de la clase Recursos */    
@@ -11,12 +12,36 @@ class Recursos{
      * __construct
      *
      * @param  mixed $idRecurso
-     * @param  mixed $nombreRecurso
+     * @param  mixed $titulo
      * @return void
      */
-    public function __construct($idRecurso, $type){
+    function __construct()
+	{
+		//obtengo un array con los parámetros enviados a la función
+		$params = func_get_args();
+		//saco el número de parámetros que estoy recibiendo
+		$num_params = func_num_args();
+		//cada constructor de un número dado de parámtros tendrá un nombre de función
+		//atendiendo al siguiente modelo __construct1() __construct2()...
+		$funcion_constructor ='__construct'.$num_params;
+		//compruebo si hay un constructor con ese número de parámetros
+		if (method_exists($this,$funcion_constructor)) {
+			//si existía esa función, la invoco, reenviando los parámetros que recibí en el constructor original
+			call_user_func_array(array($this,$funcion_constructor),$params);
+		}
+	}
+    public function __construct2($idRecurso, $type){
         $this->idRecurso = $idRecurso;
         $this->type = $type;
+
+    }
+    public function __construct3($titulo,$descripcion, $type){
+        $this->titulo = $titulo;
+        $this->descripcion = $descripcion;
+        $this->type = $type;
+
+
+
 
     }
 
@@ -32,12 +57,12 @@ class Recursos{
 
     /** getter Nombre Recurso */    
     /**
-     * getNombreRecurso
+     * gettitulo
      *
      * @return void
      */
-    public function getNombreRecurso(){
-        return $this->nombreRecurso;
+    public function gettitulo(){
+        return $this->titulo;
     }
 
     /** setter Id Recurso */    
@@ -53,13 +78,13 @@ class Recursos{
 
     /** setter Nombre Recurso */    
     /**
-     * setNombreRecurso
+     * settitulo
      *
-     * @param  mixed $nombreRecurso
+     * @param  mixed $titulo
      * @return void
      */
-    public function setNombreRecurso($nombreRecurso){
-        $this->nombreRecurso = $nombreRecurso;
+    public function settitulo($titulo){
+        $this->titulo = $titulo;
     }
 
     /** Método que añade un recurso nuevo */    
@@ -71,6 +96,19 @@ class Recursos{
     public function addRecursos(){
         
 
+        if($this->type == 'url'){
+            $sql="INSERT INTO resources_url(name_resource_url, location, id_course) VALUES('$this->titulo','$this->descripcion', 1)";
+        
+            return db_query($sql);
+        }elseif($this->type == 'file'){
+            $sql="INSERT INTO resources_files(name_resource_files, location) VALUES('$this->titulo','$this->descripcion')";
+        
+            return db_query($sql);
+        }elseif($this->type == 'text'){
+            $sql="INSERT INTO resources_text(name_resource_text, description_resource_text, id_course) VALUES('$this->titulo','$this->descripcion',1)";
+        
+            return db_query($sql);
+        }
     }
     
 

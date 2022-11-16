@@ -151,8 +151,16 @@ include("../clases/Curs_class.php");
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="editarNotaUsuarios.php">
-                            <i class="fa-solid fa-star"></i>Añadir Recurso
+                        <a class="nav-link">
+                        <div><button type='button'  data-bs-toggle='dropdown' aria-expanded='false'><i class="fas fa-file-medical"></i>Añadir Recurso</button>
+
+                            <ul class='dropdown-menu'>
+                                <li><button type='button' onclick='addDocument("file")'> <i class="far fa-file-pdf"></i>Añadir Documento</button></li>
+                                <li><button type='button' onclick='addDocument("text")'> <i class="fas fa-file-alt"></i>Añadir Texto</button></li>
+                                <li><button type='button' onclick='addDocument("url")'> <i class="fas fa-link"></i>Añadir URL</button></li>
+
+                            </ul> 
+</div>
                         </a>
                     </li>
                 </ul>
@@ -281,6 +289,36 @@ include("../clases/Curs_class.php");
                     <button type="submit" class="btn btn-primary" id="btn-add-user">Save changes</button>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="addDocument" tabindex="-1" aria-labelledby="addDocumentLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <form action="../PHP/inserirRecursos.php" method="post">
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="addDocumentLabel"></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                        <div class="md-3">
+                            <label for="titulo" class="col-form-label">Título</label>
+                            <input type="text" class="form-control" name="titulo" id="titulo">
+                            <label for="descripcionURL" class="col-form-label">Descripción o URL</label>
+
+                            <input type="text" class="form-control" name="descripcionURL" id="descripcionURL">
+                            <input type="hidden" name="type" id="edit-recurs-type">
+
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary" id="btn-add-user">Guardar</button>
+                </div>
+            </div>
+            </form>
+
         </div>
     </div>
 

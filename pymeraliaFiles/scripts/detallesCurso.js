@@ -2,6 +2,7 @@ let id = id => document.getElementById(id)
 
 let btn = id('btn-add-user')
 let form = id('addUserForm')
+let modalDocument = new bootstrap.Modal(id('addDocument'))
 let modal = new bootstrap.Modal(id('addUser'))
 let editModal = new bootstrap.Modal(id('edit-user-modal'))
 
@@ -73,6 +74,12 @@ function showEditModal(resourceId, type) {
     id('edit-user-modal-secondary-label').innerText = (type == 'text') ? 'Descripció' : 'Ubicació'
 
     editModal.show()
+}
+function addDocument(type) {
+    
+    id('addDocumentLabel').innerText = (type == 'text') ? 'Añadir Texto' : 'Añadir URL'
+    id("edit-recurs-type").value = type
+    modalDocument.show()
 }
 
 const successToast = new bootstrap.Toast(id('successToast'))
