@@ -1,6 +1,8 @@
 <?php 
-    include("../clases/RecursosURL_class.php");
 
-    $recurs = New Recursos($_POST['id']);
-    $recurs -> papeleraRecursos();
+include_once '../clases/RecursosURL_class.php';
+
+$recurs = new Recursos($_POST['id'],$_POST['type']);
+$recurs->papeleraRecursos();
+header('location: ../admin/detallesCurso.php');
 ?>
