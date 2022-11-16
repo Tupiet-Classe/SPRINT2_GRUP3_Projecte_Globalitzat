@@ -49,7 +49,7 @@
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="../admin/index.php"><i
+                                    <li><a class="dropdown-item" href="../admin/index.html"><i
                                                 class="fa-solid fa-shield-halved"></i>Admin</a></li>
                                 </ul>
                             </li>
@@ -69,13 +69,13 @@
                     </button></span>
                 <div class="collapse navbar-collapse p-0" id="navbarNav">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="index.php"><i
+                        <li class="nav-item"><a class="nav-link" href="index.html"><i
                                     class="fa-solid fa-house"></i>Inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href="cursos.php"><i
                                     class="fa-solid fa-graduation-cap"></i>Cursos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="emblemas.php"><i
+                        <li class="nav-item"><a class="nav-link" href="emblemas.html"><i
                                     class="fa-solid fa-award"></i>Emblemas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="calificaciones.php"><i
+                        <li class="nav-item"><a class="nav-link" href="calificaciones.html"><i
                                     class="fa-solid fa-star"></i>Calificaciones</a>
                         </li>
                     </ul>
@@ -88,9 +88,9 @@
 <body>
 
 <div class="contenedor" id="contenedor1">
-    <h2>Creació nou recurs</h2>
+    <h2>Entregar actividad</h2>
     <form action="insertar.php" class="form-register" method="post" enctype="multipart/form-data">
-        <h1 class="form__title">Introduce los archivos</h1>
+        <h1 class="form__title">Introduce la actividad</h1>
         <input type="file" name="archivo" class="form__file" required>
         <input type="submit" class="form__submit">
     
@@ -105,7 +105,7 @@
         <div class="fluid-container">
             <div class="row">
                 <div id="logo-footer" class="col-6 col-md-3">
-                    <a class="text-light" href="index.php"><img src="../images/logo_pymeshield_black.png"
+                    <a class="text-light" href="index.html"><img src="../images/logo_pymeshield_black.png"
                             alt="Logo" width="50px" style="margin-right: 5px;"
                             class="d-inline-block align-text-middle"><i class="fa-solid fa-copyright"></i>pymeshield
                         by Pymeralia</a>
