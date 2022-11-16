@@ -1,5 +1,4 @@
 <?php
-include("../PHP/connexio.php");
 include("../PHP/databaseFunctions.php");
 class Recursos{
     private $idRecurso;
@@ -43,6 +42,12 @@ class Recursos{
 
 
 
+    }
+    public function __construct4($id, $titulo,$descripcion, $type){
+        $this->idRecurso = $id;
+        $this->titulo = $titulo;
+        $this->descripcion = $descripcion;
+        $this->type = $type;
     }
 
     /** getter Id Recurso */    
@@ -118,8 +123,22 @@ class Recursos{
      *
      * @return void
      */
-    public function editRecursos(){
-
+    public function editRecursos($title, $description){
+        include_once "../PHP/connexio.php";
+        $id = $this->idRecurso;
+        switch ($this->type) {
+            case 'text':
+                $updateQuery = $conn->prepare("UPDATE resources_text SET name_resource_text = ?, description_resource_text = ? WHERE id_resource_text = ?");
+                $updateQuery->bind_param('ssi', $title, $description, $id);
+                $updateQuery->execute();
+                break;
+            case 'url':
+                $updateQuery = $conn->prepare("UPDATE resources_url SET name_resource_url = ?, location = ? WHERE id_resource_url = ?");
+                $updateQuery->bind_param('ssi', $title, $description, $id);
+                $updateQuery->execute();
+                break;
+            
+        }
     }
 
     /** Método que envia a la papelera un recurso existente */    
