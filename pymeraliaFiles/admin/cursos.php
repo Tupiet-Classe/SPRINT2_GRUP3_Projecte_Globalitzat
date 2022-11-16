@@ -91,18 +91,33 @@
 
 </header><!--header-->
 
-    <div class="container mt-3">
-        <h1>Cursos</h1>
-        <div class="col-md-12">
-          <a href="crearCurso.php"><button class="btn btn-secondary btn-lg">Crear curso</button></a>
-        </div>
-        <br>
-        <div id="nombreCursosAdmin">
-            <a class="nav-link" href=""><h2>Ciberseguridad</h2></a>
-            <a class="nav-link" href=""><h2>Politica de contraseñas</h2></a>
-            <a class="nav-link" href=""><h2>Protección ante los virus</h2></a>
-        </div>
-    </div>
+<main>
+        <h1 class="text-center">Listado de cursos</h3>
+
+      <?php
+      include_once '../clases/Curs_class.php';
+      $cursos = Curs::get_all_non_hidden_courses();
+      
+      if ($cursos) {
+        echo'<div class="row justify-content-evenly" id="contenedor-cursos">';
+
+        foreach ($cursos as $curso) {
+            echo 
+                '<div class="col-12 card vista-curso" style="width: 18rem;">',
+                    '<img src="../images/imagenes-curso/' . $curso['image'] . '" class="card-img" alt="imagen seguridad empresa">',
+                    '<div class="card-body">',
+                        '<h5 class="card-title">' . $curso['name_course'] . '</h5>',
+                        '<p class="card-text">' . $curso['description_course'] .'</p>',
+                        '<a href="detallesCurso.php?courseid=' . $curso['id_course'] . '"><button class="btn btn-primary">Ir al Curso</button></a>',
+                    '</div>',
+                '</div>';
+        }
+
+        echo '</div>';
+      } 
+      ?>
+    </main><!--Contenido-->
+
     <footer class="bg-black text-center text-lg-center mt-auto">
       <div class="text-center p-3">
           <div class="fluid-container">
