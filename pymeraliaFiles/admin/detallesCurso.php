@@ -162,15 +162,9 @@ include("../clases/Curs_class.php");
         
         <div class="course container col-lg-8 col-xxl-9 p-5">
         <div class='course-element text' id='course-element'>
-                        <div class='d-flex justify-content-between h5'><h4 id='resouru'>uuu</h4><button type='button' class='fas fa-ellipsis-v ps-2 pe-2 flex-row-reverse'  data-bs-toggle='dropdown' aria-expanded='false'></button>
-                            <ul class='dropdown-menu'>
-                            
-                            <li><button type='submit' ><i class='fas fa-trash-alt'></i>Eliminar</button></li>
                         
-                                <li><button type='button' onclick='showEditModal(1, `iii`)'><i class='fas fa-edit'></i>Editar</button></li>
-                            </ul> 
-                        </div>
             <h1 id="course-title">La ciberseguridad es importante</h1>
+        </div>
             <?php
                 $curs = new Curs(1);
                 $resultat = $curs->showAllRecursosURL();
