@@ -69,8 +69,10 @@ class Recursos{
      * @return void
      */
     public function addRecursos(){
+        
 
     }
+    
 
     /** Método que edita un recurso existente */    
     /**

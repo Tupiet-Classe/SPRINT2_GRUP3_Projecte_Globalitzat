@@ -150,6 +150,11 @@ include("../clases/Curs_class.php");
                             <i class="fa-solid fa-star"></i>Editar Nota
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="editarNotaUsuarios.php">
+                            <i class="fa-solid fa-star"></i>Añadir Recurso
+                        </a>
+                    </li>
                 </ul>
             </div>
         </aside>
@@ -168,12 +173,12 @@ include("../clases/Curs_class.php");
                     <div class='course-element text' id='course-element-$row[type]-$row[id]'>
                         <div class='d-flex justify-content-between h5'><h4 id='resource-primary-$row[type]-$row[id]'>$row[name]</h4><button type='button' class='fas fa-ellipsis-v ps-2 pe-2 flex-row-reverse'  data-bs-toggle='dropdown' aria-expanded='false'></button>
                             <ul class='dropdown-menu'>
-                            <form action='../PHP/borrarRecursURL.php' method='post'>
-                            <INPUT TYPE='hidden' NAME='id' value='$row[id]'><br>
-                            <INPUT TYPE='hidden' NAME='type' value='$row[type]'><br>
+                                <form action='../PHP/borrarRecursURL.php' method='post'>
+                                <INPUT TYPE='hidden' NAME='id' value='$row[id]'><br>
+                                <INPUT TYPE='hidden' NAME='type' value='$row[type]'><br>
 
-                            <li><button type='submit' ><i class='fas fa-trash-alt'></i>Eliminar</button></li>
-                            </form>
+                                <li><button type='submit' ><i class='fas fa-trash-alt'></i>Eliminar</button></li>
+                                </form>
                                 <li><button type='button' onclick='showEditModal($row[id], `$row[type]`)'><i class='fas fa-edit'></i>Editar</button></li>
                             </ul> 
                         </div>";
