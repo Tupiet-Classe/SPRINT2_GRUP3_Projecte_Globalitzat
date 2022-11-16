@@ -109,8 +109,6 @@
       } 
       ?>
     </main><!--Contenido-->
-    
-  </body>
 
   <footer class="bg-black text-center text-lg-center mt-auto">
     <div class="text-center p-3">
@@ -163,4 +161,6 @@
         </div>
     </div>
 </footer><!--footer-->
+    
+</body>
 </html>

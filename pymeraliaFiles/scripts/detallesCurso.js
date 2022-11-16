@@ -67,6 +67,9 @@ function showEditModal(resourceId, type) {
     id('edit-user-modal-primary').value = primary.innerText
     id('edit-user-modal-secondary').value = secondary.innerText
 
+    id('edit-user-modal-id').value = resourceId
+    id('edit-user-modal-type').value = type
+
     id('edit-user-modal-secondary-label').innerText = (type == 'text') ? 'Descripció' : 'Ubicació'
 
     editModal.show()
