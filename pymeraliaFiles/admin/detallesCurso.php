@@ -185,8 +185,8 @@ include("../clases/Curs_class.php");
                         <div class='d-flex justify-content-between h5'><h4 id='resource-primary-$row[type]-$row[id]'>$row[name]</h4><button type='button' class='fas fa-ellipsis-v ps-2 pe-2 flex-row-reverse'  data-bs-toggle='dropdown' aria-expanded='false'></button>
                             <ul class='dropdown-menu'>
                                 <form action='../PHP/borrarRecursURL.php' method='post'>
-                                <INPUT TYPE='hidden' NAME='id' value='$row[id]'><br>
-                                <INPUT TYPE='hidden' NAME='type' value='$row[type]'><br>
+                                <INPUT class='d-none' TYPE='hidden' NAME='id' value='$row[id]'>
+                                <INPUT class='d-none' TYPE='hidden' NAME='type' value='$row[type]'>
 
                                 <li><button type='submit' ><i class='fas fa-trash-alt'></i>Eliminar</button></li>
                                 </form>
