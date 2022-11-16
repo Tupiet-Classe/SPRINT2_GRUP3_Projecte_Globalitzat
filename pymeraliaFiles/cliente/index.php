@@ -9,6 +9,7 @@
     <script src="../scripts/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/index.css">
     <link href="../css/fontawesome.min.css" rel="stylesheet">
     <link href="../css/brands.min.css" rel="stylesheet">
     <link href="../css/solid.min.css" rel="stylesheet">
@@ -46,7 +47,7 @@
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="../admin/index.html"><i class="fa-solid fa-shield-halved"></i>Admin</a></li>
+                                    <li><a class="dropdown-item" href="../admin/index.php"><i class="fa-solid fa-shield-halved"></i>Admin</a></li>
                                 </ul>
                             </li>
                     </div>
@@ -65,13 +66,13 @@
                     </button></span>
                 <div class="collapse navbar-collapse p-0" id="navbarNav">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="index.html"><i
+                        <li class="nav-item"><a class="nav-link" href="index.php"><i
                                     class="fa-solid fa-house"></i>Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="cursos.html"><i
+                        <li class="nav-item"><a class="nav-link" href="cursos.php"><i
                                     class="fa-solid fa-graduation-cap"></i>Cursos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="emblemas.html"><i
+                        <li class="nav-item"><a class="nav-link" href="emblemas.php"><i
                                     class="fa-solid fa-award"></i>Emblemas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="calificaciones.html"><i
+                        <li class="nav-item"><a class="nav-link" href="calificaciones.php"><i
                                     class="fa-solid fa-star"></i>Calificaciones</a>
                         </li>
                     </ul>
@@ -80,85 +81,28 @@
         <!--Header Menu-->
 
     </header>
-    <div class="container overflow-hidden text-center py-3" id="cuerpo">
-        <div>
-            <h2>Emblemas</h2>
-        </div>
-        <div>
-            <table class="table table-striped align-middle">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Emblemas ganados</th>
-                        <th scope="col">Descripción</th>
-                        <th scope="col">Medalla</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Curso 1</td>
-                        <td>Completa el curso 1</td>
-                        <td><img src="../images/emblemas/1.png" alt="emblema1" width="40" height="40"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Curso 2</td>
-                        <td>Completa el curso 2</td>
-                        <td><img src="../images/emblemas/2.png" alt="emblema2" width="40" height="40"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Curso 3</td>
-                        <td>Completa el curso 3</td>
-                        <td><img src="../images/emblemas/3.png" alt="emblema3" width="40" height="40"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="accordion" id="accordionFlushExample">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingOne">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                        Emblemas por ganar
-                    </button>
-                </h2>
-                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-                    data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">
-                        <table class="table table-striped align-middle">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Emblemas por ganar</th>
-                                    <th scope="col">Descripción</th>
-                                    <th scope="col">Medalla</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Curso 4</td>
-                                    <td>Completa el curso 4</td>
-                                    <td><img src="../images/emblemas/4.png" alt="emblema4" width="40" height="40"></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Curso 5</td>
-                                    <td>Completa el curso 5</td>
-                                    <td><img src="../images/emblemas/5.png" alt="emblema5" width="40" height="40"></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">6</th>
-                                    <td>Curso 6</td>
-                                    <td>Completa el curso 6</td>
-                                    <td><img src="../images/emblemas/6.png" alt="emblema6" width="40" height="40"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+    <div class="container overflow-hidden text-center py-3 m-5" id="cuerpo">
+        <div class="row g-2" id="cuadros">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <a href="index.php">
+                    <div class="p-3 border" id="bg-inicio"><span id="borde-texto">Inicio</span></div>
+                </a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <a href="cursos.php">
+                    <div class="p-3 border" id="bg-cursos"><span id="borde-texto">Cursos</span></div>
+                </a>
+            </div>
+            <div class="w-100"></div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <a href="emblemas.php">
+                    <div class="p-3 border" id="bg-emblemas"><span id="borde-texto">Emblemas</span></div>
+                </a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <a href="calificaciones.php">
+                    <div class="p-3 border" id="bg-calificaciones"><span id="borde-texto">Calificaciones</span></div>
+                </a>
             </div>
         </div>
     </div>
@@ -167,7 +111,7 @@
             <div class="fluid-container">
                 <div class="row">
                     <div id="logo-footer" class="col-6 col-md-3">
-                        <a class="text-light" href="index.html"><img src="../images/logo_pymeshield_black.png"
+                        <a class="text-light" href="index.php"><img src="../images/logo_pymeshield_black.png"
                                 alt="Logo" width="50px" style="margin-right: 5px;"
                                 class="d-inline-block align-text-middle"><i class="fa-solid fa-copyright"></i>pymeshield
                             by Pymeralia</a>

@@ -52,7 +52,7 @@ include("../clases/Curs_class.php");
                                         <hr class="dropdown-divider">
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="../cliente/index.html"><i
+                                        <a class="dropdown-item" href="../cliente/index.php"><i
                                                 class="fa-solid fa-shield-halved">
                                             </i>Modo Usuario</a>
                                     </li>
@@ -74,17 +74,17 @@ include("../clases/Curs_class.php");
                     </button></span>
                 <div class="collapse navbar-collapse p-0" id="navbarNav">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="index.html"><i
+                        <li class="nav-item"><a class="nav-link" href="index.php"><i
                                     class="fa-solid fa-house"></i>Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="dashboardCurso.html"><i
+                        <li class="nav-item"><a class="nav-link" href="dashboardCurso.php"><i
                                     class="fa-solid fa-graduation-cap"></i>Listado Cursos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="usuariosCurso.html"><i
+                        <li class="nav-item"><a class="nav-link" href="usuariosCurso.php"><i
                                     class="fa-solid fa-users"></i>Listado Alumnos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="crearActividad.html"><i
+                        <li class="nav-item"><a class="nav-link" href="crearActividad.php"><i
                                     class="fa-solid fa-circle-plus"></i>Crear Actividad</a></li>
-                        <li class="nav-item"><a class="nav-link" href="editarCurso.html"><i
+                        <li class="nav-item"><a class="nav-link" href="editarCurso.php"><i
                                     class="fa-solid fa-award"></i>Editar Curso</a></li>
-                        <li class="nav-item"><a class="nav-link" href="editarNotaUsuarios.html"><i
+                        <li class="nav-item"><a class="nav-link" href="editarNotaUsuarios.php"><i
                                     class="fa-solid fa-star"></i>Editar Nota</a>
                         </li>
                         
@@ -125,28 +125,28 @@ include("../clases/Curs_class.php");
                 <h3>Acciones rápidas</h3>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <button class="nav-link btn" href="addUsuarioCurso.html" data-bs-toggle="modal"
+                        <button class="nav-link btn" href="addUsuarioCurso.php" data-bs-toggle="modal"
                             data-bs-target="#addUser">
                             <i class="fa-solid fa-user-plus"></i>Añadir alumno
                         </button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="usuariosCurso.html">
+                        <a class="nav-link" href="usuariosCurso.php">
                             <i class="fa-solid fa-users"></i>Listado de alumnos
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="crearActividad.html">
+                        <a class="nav-link" href="crearActividad.php">
                             <i class="fa-solid fa-circle-plus"></i>Crear Actividad
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="editarCurso.html">
+                        <a class="nav-link" href="editarCurso.php">
                             <i class="fa-solid fa-award"></i>Editar Curso
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="editarNotaUsuarios.html">
+                        <a class="nav-link" href="editarNotaUsuarios.php">
                             <i class="fa-solid fa-star"></i>Editar Nota
                         </a>
                     </li>
@@ -194,7 +194,7 @@ include("../clases/Curs_class.php");
             <div class="fluid-container">
                 <div class="row">
                     <div id="logo-footer" class="col-6 col-md-3">
-                        <a class="text-light" href="index.html"><img src="../images/logo_pymeshield_black.png"
+                        <a class="text-light" href="index.php"><img src="../images/logo_pymeshield_black.png"
                                 alt="Logo" width="50px" style="margin-right: 5px;"
                                 class="d-inline-block align-text-middle"><i class="fa-solid fa-copyright"></i>pymeshield
                             by Pymeralia</a>

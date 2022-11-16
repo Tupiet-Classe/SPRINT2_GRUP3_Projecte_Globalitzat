@@ -48,7 +48,7 @@
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="../admin/index.html"><i class="fa-solid fa-shield-halved"></i>Admin</a></li>
+                                    <li><a class="dropdown-item" href="../admin/index.php"><i class="fa-solid fa-shield-halved"></i>Admin</a></li>
                                 </ul>
                             </li>
                     </div>
@@ -67,13 +67,13 @@
                     </button></span>
                 <div class="collapse navbar-collapse p-0" id="navbarNav">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="index.html"><i
+                        <li class="nav-item"><a class="nav-link" href="index.php"><i
                                     class="fa-solid fa-house"></i>Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="cursos.html"><i
+                        <li class="nav-item"><a class="nav-link" href="cursos.php"><i
                                     class="fa-solid fa-graduation-cap"></i>Cursos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="emblemas.html"><i
+                        <li class="nav-item"><a class="nav-link" href="emblemas.php"><i
                                     class="fa-solid fa-award"></i>Emblemas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="calificaciones.html"><i
+                        <li class="nav-item"><a class="nav-link" href="calificaciones.php"><i
                                     class="fa-solid fa-star"></i>Calificaciones</a>
                         </li>
                     </ul>
@@ -117,7 +117,7 @@
         <div class="fluid-container">
             <div class="row">
                 <div id="logo-footer" class="col-6 col-md-3">
-                    <a class="text-light" href="index.html"><img src="../images/logo_pymeshield_black.png"
+                    <a class="text-light" href="index.php"><img src="../images/logo_pymeshield_black.png"
                             alt="Logo" width="50px" style="margin-right: 5px;"
                             class="d-inline-block align-text-middle"><i class="fa-solid fa-copyright"></i>pymeshield
                         by Pymeralia</a>
