@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EVA Pymeralia</title>
-    <script src="../scripts/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/main.css">
     <link href="../css/fontawesome.min.css" rel="stylesheet">
     <link href="../css/brands.min.css" rel="stylesheet">
@@ -71,7 +71,7 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="index.html"><i
                                     class="fa-solid fa-house"></i>Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="cursos.html"><i
+                        <li class="nav-item"><a class="nav-link" href="cursos.php"><i
                                     class="fa-solid fa-graduation-cap"></i>Cursos</a></li>
                         <li class="nav-item"><a class="nav-link" href="emblemas.html"><i
                                     class="fa-solid fa-award"></i>Emblemas</a></li>
@@ -88,9 +88,9 @@
 <body>
 
 <div class="contenedor" id="contenedor1">
-    <h2>Creació nou recurs</h2>
+    <h2>Entregar actividad</h2>
     <form action="insertar.php" class="form-register" method="post" enctype="multipart/form-data">
-        <h1 class="form__title">Introduce los archivos</h1>
+        <h1 class="form__title">Introduce la actividad</h1>
         <input type="file" name="archivo" class="form__file" required>
         <input type="submit" class="form__submit">
     

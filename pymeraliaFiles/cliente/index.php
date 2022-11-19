@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EVA Pymeralia</title>
-    <script src="../scripts/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/index.css">
     <link href="../css/fontawesome.min.css" rel="stylesheet">
@@ -47,7 +47,7 @@
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="../admin/index.html"><i class="fa-solid fa-shield-halved"></i>Admin</a></li>
+                                    <li><a class="dropdown-item" href="../admin/index.php"><i class="fa-solid fa-shield-halved"></i>Admin</a></li>
                                 </ul>
                             </li>
                     </div>
@@ -66,13 +66,13 @@
                     </button></span>
                 <div class="collapse navbar-collapse p-0" id="navbarNav">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="index.html"><i
+                        <li class="nav-item"><a class="nav-link" href="index.php"><i
                                     class="fa-solid fa-house"></i>Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="cursos.html"><i
+                        <li class="nav-item"><a class="nav-link" href="cursos.php"><i
                                     class="fa-solid fa-graduation-cap"></i>Cursos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="emblemas.html"><i
+                        <li class="nav-item"><a class="nav-link" href="emblemas.php"><i
                                     class="fa-solid fa-award"></i>Emblemas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="calificaciones.html"><i
+                        <li class="nav-item"><a class="nav-link" href="calificaciones.php"><i
                                     class="fa-solid fa-star"></i>Calificaciones</a>
                         </li>
                     </ul>
@@ -84,23 +84,23 @@
     <div class="container overflow-hidden text-center py-3 m-5" id="cuerpo">
         <div class="row g-2" id="cuadros">
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                <a href="index.html">
+                <a href="index.php">
                     <div class="p-3 border" id="bg-inicio"><span id="borde-texto">Inicio</span></div>
                 </a>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                <a href="cursos.html">
+                <a href="cursos.php">
                     <div class="p-3 border" id="bg-cursos"><span id="borde-texto">Cursos</span></div>
                 </a>
             </div>
             <div class="w-100"></div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                <a href="emblemas.html">
+                <a href="emblemas.php">
                     <div class="p-3 border" id="bg-emblemas"><span id="borde-texto">Emblemas</span></div>
                 </a>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                <a href="calificaciones.html">
+                <a href="calificaciones.php">
                     <div class="p-3 border" id="bg-calificaciones"><span id="borde-texto">Calificaciones</span></div>
                 </a>
             </div>
@@ -111,7 +111,7 @@
             <div class="fluid-container">
                 <div class="row">
                     <div id="logo-footer" class="col-6 col-md-3">
-                        <a class="text-light" href="index.html"><img src="../images/logo_pymeshield_black.png"
+                        <a class="text-light" href="index.php"><img src="../images/logo_pymeshield_black.png"
                                 alt="Logo" width="50px" style="margin-right: 5px;"
                                 class="d-inline-block align-text-middle"><i class="fa-solid fa-copyright"></i>pymeshield
                             by Pymeralia</a>

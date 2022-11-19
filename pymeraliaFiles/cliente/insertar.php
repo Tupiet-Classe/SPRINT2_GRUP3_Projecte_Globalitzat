@@ -9,7 +9,7 @@ if($_FILES["archivo"]) {
         $insertarSQL = "INSERT INTO resources_files(archivo) VALUES ('$ruta')";
         $resultado = mysqli_query($conexion, $insertarSQL);
         if($resultado){
-            echo "<script>alert('Se han subido los archivos'); window.location='recurs.html'</script>";
+            echo "<script>alert('Se han subido los archivos'); window.location='recurs.php'</script>";
         }   else{
             printf("Errormessage: %s\n", mysqli_error($conexion));
         }

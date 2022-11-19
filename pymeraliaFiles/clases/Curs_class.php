@@ -142,8 +142,24 @@ class Curs
             return $db;
     }
 
-    public function showAllRecursos(){
-        $sql = "SELECT name_recource_url from resources_url where id_course = $this->idCurso"; 
+    public function showAllRecursosURL(){
+
+        
+        $sql = "SELECT `id_resource_url` as id, `name_resource_url` as name, `location` as location_or_description, `id_course`, `hidden`, 'url' as type 
+        FROM `resources_url` where id_course = $this->idCurso
+        
+        UNION
+
+        SELECT `id_resource_file`, `name_resource_file`, `location`, `id_course`, `hidden`, 'file' as type 
+        FROM `resources_files`
+        where id_course = $this->idCurso
+
+        UNION
+        
+        SELECT `id_resource_text`, `name_resource_text`, `description_resource_text`, `id_course`, `hidden`, 'text' as type 
+        FROM `resources_text`
+        where id_course = $this->idCurso"; 
+
         $db=db_query($sql);
         return $db;
     }

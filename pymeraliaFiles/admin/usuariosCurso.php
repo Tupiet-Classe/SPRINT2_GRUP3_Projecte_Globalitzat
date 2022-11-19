@@ -5,10 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <!--bootstrap-->
-    <script src="../scripts/bootstrap.bundle.min.js"></script>
-    <!--bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/estilo_lista_alumnos.css">
     <link href="../css/fontawesome.min.css" rel="stylesheet">
     <link href="../css/brands.min.css" rel="stylesheet">
@@ -58,7 +56,7 @@
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="../cliente/index.html"><i
+                                    <li><a class="dropdown-item" href="../cliente/index.php"><i
                                                 class="fa-solid fa-shield-halved"></i>Modo Usuario</a></li>
                                 </ul>
                             </li>
@@ -78,19 +76,19 @@
                     </button></span>
                     <div class="collapse navbar-collapse p-0" id="navbarNav">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                          <li class="nav-item"><a class="nav-link" href="index.html"><i
+                          <li class="nav-item"><a class="nav-link" href="index.php"><i
                                         class="fa-solid fa-house"></i>Inicio</a></li>
-                          <li class="nav-item"><a class="nav-link" href="dashboardCurso.html"><i
+                          <li class="nav-item"><a class="nav-link" href="cursos.php.php"><i
                                         class="fa-solid fa-graduation-cap"></i>Listado Cursos</a></li>
-                          <li class="nav-item"><a class="nav-link" href="usuariosCurso.html"><i
+                          <li class="nav-item"><a class="nav-link" href="usuariosCurso.php"><i
                                           class="fa-solid fa-users"></i>Listado Alumnos</a></li>
-                          <li class="nav-item"><a class="nav-link" href="crearActividad.html"><i 
+                          <li class="nav-item"><a class="nav-link" href="crearActividad.php"><i 
                               class="fa-solid fa-circle-plus"></i>Crear Actividad</a></li>
-                          <li class="nav-item"><a class="nav-link" href="editarCurso.html"><i
+                          <li class="nav-item"><a class="nav-link" href="editarCurso.php"><i
                                         class="fa-solid fa-award"></i>Editar Curso</a></li>
-                          <li class="nav-item"><a class="nav-link" href="editarNotaUsuarios.html"><i
+                          <li class="nav-item"><a class="nav-link" href="editarNotaUsuarios.php"><i
                                         class="fa-solid fa-star"></i>Editar Nota</a>
-                            <li class="nav-item"><a class="nav-link" href="emblemasAdmin.html"><i
+                            <li class="nav-item"><a class="nav-link" href="emblemasAdmin.php"><i
                                 class="fa-solid fa-certificate"></i>Editar Emblemas</a>
                             </li>
                         </ul>
@@ -190,7 +188,7 @@
             <div class="fluid-container">
                 <div class="row">
                     <div id="logo-footer" class="col-6 col-md-3">
-                        <a class="text-light" href="index.html"><img src="../images/logo_pymeshield_black.png"
+                        <a class="text-light" href="index.php"><img src="../images/logo_pymeshield_black.png"
                                 alt="Logo" width="50px" style="margin-right: 5px;"
                                 class="d-inline-block align-text-middle"><i class="fa-solid fa-copyright"></i>pymeshield
                             by Pymeralia</a>
