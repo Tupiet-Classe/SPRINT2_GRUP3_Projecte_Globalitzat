@@ -5,6 +5,7 @@ if(isset($_FILES['image'])){
     $file = $_FILES['image'];
     $filename = $file['name'];
     $file_type = $file['type'];
+    $file_size = $file['size'];
 
     // Validació per a que sigui una imatge amb uns formats concrets
     $allowed_types = array("image/jpg" , "image/jpeg" , "image/png");
@@ -19,7 +20,7 @@ if(isset($_FILES['image'])){
     }
 
     // Moure arxiu a directori image/emblemas
-    move_uploaded_file($file['tmp_name'], '../../images/emblemas/'.$filename);
+    move_uploaded_file($file['tmp_name'], '../images/emblemas/'.$filename);
 
 } else {
     header("location:emblemasAdmin.php");
