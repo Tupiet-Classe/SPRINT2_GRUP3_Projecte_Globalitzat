@@ -123,21 +123,36 @@ class Emblema {
 
   
   /**
+   * papeleraEmblema
+   *
+   * @return void
+   */
+  public function papeleraEmblema(){
+
+    $fechaActual = date('Y-m-d');
+    
+    $sql = "UPDATE emblems SET hidden = '$fechaActual' WHERE id_emblem = $this->idEmblema";
+  
+    db_query($sql);
+  }
+  
+    /**
    * deleteEmblema
    *
    * @return void
    */
   public function deleteEmblema(){
 
+
   }
-  
+
   /**
    * showEmblema
    *
    * @return void
    */
   public static function showEmblema(){
-    $sql = "SELECT name_emblem,image FROM emblems"; 
+    $sql = "SELECT id_emblem, name_emblem,image FROM emblems"; 
     $db = db_query($sql);
     return $db;
   }

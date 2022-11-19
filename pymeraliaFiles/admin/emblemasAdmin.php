@@ -101,9 +101,10 @@
 
                 include_once '../clases/Emblema_class.php';
                 $emblema = New Emblema(1);
-                
                 $emblemas = $emblema->showEmblema();
 
+                //$embl->papeleraEmblema();
+                
                 if($emblemas != false){
                     echo
                     '<table class="table table-striped align-middle">',
@@ -121,8 +122,9 @@
                     '<tr>'.
                         '<td>' . $emblema['name_emblem'] . '</td>' .
                             '<td>' . '<img src= "' . $emblema['image'] . '" width="40" height="40">' .'</td>' .
-                            '<td>' .'<button type="button">' . '<img src="../images/botons/edit.png">' . '</button>' . '<button type="button"
-                                class="ms-4">' . '<img src="../images/botons/delete.png">' . '</button>' . '</td>' . 
+                            '<td>' .'<button type="button">' . '<img src="../images/botons/edit.png">' . '</button>' .
+                           // '<form action="../PHP/borrarEmblema.php" method="post">' . /*'</form>'*/
+                            '<button type="submit" class="ms-4">' . '<img src="../images/botons/delete.png">' . '</button>' . '</td>' . 
                         '</tr>';
                     }
                     echo
@@ -133,30 +135,36 @@
                         echo '<h6>No hay emblemas para tus cursos.</h6>';
                         
                     }
-                    echo"<div class=\"modal fade\" id=\"exampleModal\" tabindex=\"-1\" aria-labelledby=\"exampleModalLabel\""
-                    . "               aria-hidden=\"true\">"
-                    . "               <div class=\"modal-dialog modal-dialog-centered\">"
-                    . "                   <div class=\"modal-content\">"
-                    . "                       <div class=\"modal-header\">"
-                    . "                           <h1 class=\"modal-title fs-5\" id=\"exampleModalLabel\">Añadir un emblema</h1>"
-                    . "                           <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>"
-                    . "                       </div>"
-                    . "                       <div class=\"modal-body\">"
-                    . "                           <p class=\"h3 mb-3 text-start\">Emblema</p>"
-                    . "                           <div class=\"input-group\">"
-                    . "                               "
-                    . "                           <input type=\"file\" class=\"form-control\" id=\"inputGroupFile04\""
-                    . "                                   aria-describedby=\"inputGroupFileAddon04\" aria-label=\"Upload\">"
-                    . "                           </div>"
-                    . "                       </div>"
-                    . "                       <div class=\"modal-footer\">"
-                    . "                           <button type=\"button\" class=\"btn btn-danger\" data-bs-dismiss=\"modal\">Cancelar</button>"
-                    . "                           <button type=\"button\" class=\"btn btn-success\">+ Añadir</button>"
-                    . "                       </div>"
-                    . "                   </div>"
-                    . "               </div>"
-                    . "           </div>"
-                   ."";
+                    
+                    
+                    echo
+                    '<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby=\"exampleModalLabel" . " aria-hidden=\"true\">'
+                    . '<div class="modal-dialog modal-dialog-centered">'
+                    . '<div class="modal-content">'
+                    . '<div class="modal-header">'
+                    . '<h1 class="modal-title fs-5" id="exampleModalLabel">Añadir un emblema</h1>'
+                    . '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">' . '</button>'
+                    . '</div>'
+        
+                    . ' <div class="modal-body"> '
+                    
+                    . ' <p class="h3 mb-3 text-start">Emblema</p> '                 
+    
+                    . ' <div class="input-group mb-3"> '
+                    . ' </div>' 
+                    
+                    . '  <div class="input-group">'
+                    . ' <form action="../PHP/uploadEmblema.php" method="POST" enctype="multipart/form-data"> '
+                    . ' <input type="file" class="form-control" name="image" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload"> '
+                    . ' </div> '
+                    . ' </div> '
+                    . ' <div class="modal-footer">'
+                    . ' <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> Cancelar  </button> '
+                    . ' <button type="submit" class="btn btn-success"> + Añadir</button>' 
+                    . ' </div> '
+                    . ' </div> '
+                    . ' </div> '
+                    . ' </div> ';
                 
 
 
