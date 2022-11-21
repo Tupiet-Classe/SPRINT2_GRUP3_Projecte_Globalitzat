@@ -2,11 +2,14 @@
 include("../PHP/connexio.php");
 include("../PHP/databaseFunctions.php");
 
+
 class Emblema {
   private $idEmblema;
   private $nombreEmblema;
   private $descripcionEmblema;
   private $imagenEmblema;
+  private $courseId;
+
 
   
   /** Constructor de la classe Emblema */
@@ -19,10 +22,28 @@ class Emblema {
    * @param  mixed $imagenEmblema
    * @return void
    */
-  public function __construct($idEmblema){
-    $this->idEmblema = $idEmblema;
+  public function __construct(){
+  
+    $arguments = func_get_args();
+    $numberOfArguments = func_num_args();
+
+    if (method_exists($this, $function = '__construct'.$numberOfArguments)) {
+        call_user_func_array(array($this, $function), $arguments);
+    }
   }
   
+  public function __construct1($idEmblema){
+    $this->idEmblema = $idEmblema;
+  }
+
+  public function __construct4($nombreEmblema,$descripcionEmblema,$imagenEmblema,$courseId){
+    $this->nombreEmblema = $nombreEmblema;
+    $this->descripcionEmblema = $descripcionEmblema;
+    $this->imagenEmblema = $imagenEmblema;
+    $this->courseId = $courseId;
+  }
+
+
   /**
    * getIdEmblema
    *
@@ -107,8 +128,10 @@ class Emblema {
    * @return void
    */
   public function addEmblema(){
-    $sql = "INSERT name_emblem,image VALUES('','') ";
-    $db = db_query();
+    /*INSERT INTO `emblems` (`id_emblem`, `name_emblem`, `description_emblem`, `image`, `id_course`, `hidden`) 
+    VALUES (NULL, 'PROVA', 'PROVA', NULL, '2', NULL);*/
+    $sql = "INSERT INTO emblems (name_emblem, description_emblem, image, id_course, hidden)  VALUES ('$this->nombreEmblema','$this->descripcionEmblema','$this->imagenEmblema',$this->courseId, NULL)";
+    db_query($sql);
   }
 
   
@@ -152,7 +175,7 @@ class Emblema {
    * @return void
    */
   public static function showEmblema(){
-    $sql = "SELECT id_emblem, name_emblem,image FROM emblems"; 
+    $sql = "SELECT name_emblem,description_emblem,image,id_course FROM emblems"; 
     $db = db_query($sql);
     return $db;
   }
@@ -195,5 +218,3 @@ class Emblema {
 
 }
 ?>
-
-  
