@@ -247,7 +247,7 @@ class Curs
     public static function get_all_courses() {
         include_once '../PHP/connexio.php';
         // Recuperem tots els cursos
-        $selectQuery = $conn->prepare('SELECT id_course, name_course, description_course, image, hidden');
+        $selectQuery = $conn->prepare('SELECT id_course, name_course, description_course, image, hidden FROM courses');
         $selectQuery->execute();
 
         // Retornem tots els cursos
@@ -257,13 +257,13 @@ class Curs
     public static function get_all_non_hidden_courses() {
         include_once '../PHP/connexio.php';
         // Recuperem tots els cursos
-        $selectQuery = $conn->prepare('SELECT id_course, name_course, description_course, image FROM courses WHERE hidden is not null');
+        $selectQuery = $conn->prepare('SELECT id_course, name_course, description_course, image FROM courses WHERE hidden is null');
         $selectQuery->execute();
 
         // Guardem el resultat
         $result = $selectQuery->get_result();
 
-        return $result->num_rows ? $result : false;
+        return $result->num_rows>0 ? $result : false;
     }
 
     public function get_users_from_course() {
