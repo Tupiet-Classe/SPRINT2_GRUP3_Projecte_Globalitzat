@@ -101,10 +101,8 @@
       echo'<div class="row justify-content-evenly" id="contenedor-cursos">';
 
           echo 
-              '<div class="col-12 card vista-curso" style="width: 18rem;">',
+              '<div class="col-12 card d-flex justify-content-center align-items-center" style="width: fit-content; height: 3rem">',
               '<button type="button" onclick="addCurso()"> <i class="fas fa-link"></i>Añadir Curso</button>',
-                  '<div class="card-body">',
-                  '</div>',
               '</div>',
               '</div>';
       $cursos = Curs::get_all_non_hidden_courses();
