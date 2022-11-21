@@ -1,9 +1,18 @@
-<!DOCTYPE html>
-<html lang="es">
 <?php
 include("../clases/Curs_class.php");
 
+$courseId;
+
+if (isset($_GET['courseid'])) {
+    $courseId = $_GET['courseid'];
+} else {
+    header('location: ./cursos.php');
+}
 ?>
+
+<!DOCTYPE html>
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -169,13 +178,18 @@ include("../clases/Curs_class.php");
 
         
         <div class="course container col-lg-8 col-xxl-9 p-5">
-        <div class='course-element text' id='course-element'>
-                        
-            <h1 id="course-title">La ciberseguridad es importante</h1>
-        </div>
             <?php
-                $curs = new Curs(1);
+                $curs = new Curs($courseId);
                 $resultat = $curs->showAllRecursosURL();
+                $title = $curs->get_title();
+                $courseId = $_GET['courseid'];
+
+                echo "
+                <div class='course-element text' id='course-element'>     
+                    <h1 id='course-title'>$title</h1>
+                </div>
+                ";
+
                 foreach ($resultat as $row){
                     if($row['hidden'] != null){
 
@@ -185,10 +199,11 @@ include("../clases/Curs_class.php");
                         <div class='d-flex justify-content-between h5'><h4 id='resource-primary-$row[type]-$row[id]'>$row[name]</h4><button type='button' class='fas fa-ellipsis-v ps-2 pe-2 flex-row-reverse'  data-bs-toggle='dropdown' aria-expanded='false'></button>
                             <ul class='dropdown-menu'>
                                 <form action='../PHP/borrarRecursURL.php' method='post'>
-                                <INPUT class='d-none' TYPE='hidden' NAME='id' value='$row[id]'>
-                                <INPUT class='d-none' TYPE='hidden' NAME='type' value='$row[type]'>
+                                    <INPUT class='d-none' TYPE='hidden' NAME='id' value='$row[id]'>
+                                    <INPUT class='d-none' TYPE='hidden' NAME='type' value='$row[type]'>
+                                    <input type='hidden' name='id-course' id='delete-id-course' value='$courseId'>
 
-                                <li><button type='submit' ><i class='fas fa-trash-alt'></i>Eliminar</button></li>
+                                    <li><button type='submit' ><i class='fas fa-trash-alt'></i>Eliminar</button></li>
                                 </form>
                                 <li><button type='button' onclick='showEditModal($row[id], `$row[type]`)'><i class='fas fa-edit'></i>Editar</button></li>
                             </ul> 
@@ -309,6 +324,7 @@ include("../clases/Curs_class.php");
 
                             <input type="text" class="form-control" name="descripcionURL" id="descripcionURL">
                             <input type="hidden" name="type" id="edit-recurs-type">
+                            <input type="hidden" name="id-course" id="add-id-course" value="<?php echo $_GET['courseid'] ?>">
 
                         </div>
                 </div>
@@ -339,6 +355,7 @@ include("../clases/Curs_class.php");
                         <textarea class="form-control" type="text" name="secondary" id="edit-user-modal-secondary"></textarea>
                         <input type="hidden" name="id" id="edit-user-modal-id">
                         <input type="hidden" name="type" id="edit-user-modal-type">
+                        <input type="hidden" name="id-course" id="edit-id-course" value="<?php echo $_GET['courseid'] ?>">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

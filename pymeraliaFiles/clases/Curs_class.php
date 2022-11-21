@@ -137,9 +137,9 @@ class Curs
      */
     public function showCursos()
     {
-            $sql = "SELECT name_course from courses where id_course = $this->idCurso"; 
-            $db=db_query($sql);
-            return $db;
+        $sql = "SELECT name_course from courses where id_course = $this->idCurso"; 
+        $db=db_query($sql);
+        return $db;
     }
 
     public function showAllRecursosURL(){
@@ -164,22 +164,6 @@ class Curs
         return $db;
     }
     
-    /**
-     * enableCurso - Futuro método para activar cursos
-     *
-     * @return void
-     */
-    public function enableCurso()
-    {
-    }
-    /**
-     * disableCurso - Futuro método para desactivar cursos
-     *
-     * @return void
-     */
-    public function disableCurso()
-    {
-    }
     /**
      * assignCurso - Método para asignar cursos
      *
@@ -264,6 +248,19 @@ class Curs
         $result = $selectQuery->get_result();
 
         return $result->num_rows>0 ? $result : false;
+    }
+
+    public function get_title() {
+        include_once '../PHP/connexio.php';
+        $courseId = $this->idCurso;
+        $selectQuery = $conn->prepare('SELECT name_course FROM courses WHERE id_course = ?');
+        $selectQuery->bind_param('i', $courseId);
+        $selectQuery->execute();
+
+        // Guardem el resultat
+        $result = $selectQuery->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC)[0]['name_course'];
     }
 
     public function get_users_from_course() {
