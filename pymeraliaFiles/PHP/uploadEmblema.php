@@ -8,8 +8,8 @@ if(isset($_FILES['emblem'])){
 
     $name = $_POST['name'];
     $description = $_POST['description'];
-    $course = $_POST['course'];
     $file = $_FILES['emblem'];
+    $course = $_POST['course'];
     $filename = $file['name'];
     $file_type = $file['type'];
     $file_size = $file['size'];
@@ -17,8 +17,7 @@ if(isset($_FILES['emblem'])){
     $route = "../images/emblemas/";
     $final_file_name = $hash.'_'.$filename;
 
-    $emblema = new Emblema($name, $description, $final_file_name, $course);
-    $emblema->addEmblema();
+    
     
 
     // Crear directori images/emblemas i donar-li permisos (si no existeix ja).
@@ -34,6 +33,8 @@ if(isset($_FILES['emblem'])){
         if($file_size <= 1000000){
             // Moure arxiu a directori image/emblemas
             move_uploaded_file($file['tmp_name'], $route . $final_file_name);
+            $emblema = new Emblema($name, $description, $final_file_name, $course);
+            $emblema->addEmblema();
             header("location:../admin/emblemasAdmin.php");
         }
     }   else{

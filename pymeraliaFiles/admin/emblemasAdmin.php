@@ -127,8 +127,8 @@
                             '<td>' . $emblema['description_emblem'] . '</td>' .
                             '<td>' . '<img src= "' . '../images/emblemas/' . $emblema['image'] . '" width="40" height="40">' .'</td>' .
                             '<td>' . $emblema['id_course'] . '</td>' .
-                            '<td>' . '' .'<button type="button">' . '<img src="../images/botons/edit.png">' . '</button>' . '' .
-                             '<button type="submit" class="ms-4">' . '<img src="../images/botons/delete.png">' . '</button>' . '</td>' . 
+                            '<td class="d-flex flex-row justify-content-center align-items-center" style="height:57px;">' . '<form action="../PHP/deleteEmblema.php" method="post">' .'<button type="button">' . '<img src="../images/botons/edit.png">' . '</button>' .  '</form>' .
+                            '<form action="../PHP/deleteEmblema.php" method="post">' .'<button type="submit" class="ms-4">' . '<img src="../images/botons/delete.png">' . '</button>' . '</form>' . '</td>' . 
                         '</tr>';
                     }
                     echo

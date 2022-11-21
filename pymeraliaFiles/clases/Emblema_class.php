@@ -128,8 +128,6 @@ class Emblema {
    * @return void
    */
   public function addEmblema(){
-    /*INSERT INTO `emblems` (`id_emblem`, `name_emblem`, `description_emblem`, `image`, `id_course`, `hidden`) 
-    VALUES (NULL, 'PROVA', 'PROVA', NULL, '2', NULL);*/
     $sql = "INSERT INTO emblems (name_emblem, description_emblem, image, id_course, hidden)  VALUES ('$this->nombreEmblema','$this->descripcionEmblema','$this->imagenEmblema',$this->courseId, NULL)";
     db_query($sql);
   }
@@ -155,7 +153,6 @@ class Emblema {
     $fechaActual = date('Y-m-d');
     
     $sql = "UPDATE emblems SET hidden = '$fechaActual' WHERE id_emblem = $this->idEmblema";
-  
     db_query($sql);
   }
   

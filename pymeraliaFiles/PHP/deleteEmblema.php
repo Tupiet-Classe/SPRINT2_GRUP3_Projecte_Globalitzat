@@ -1,8 +1,8 @@
 <?php 
 
-include_once '../clases/RecursosURL_class.php';
+include_once '../clases/Emblema_class.php';
 
-$recurs = new Recursos($_POST['id'],$_POST['type']);
-$recurs->papeleraRecursos();
-header('location: ../admin/detallesCurso.php');
+$recurs = new Emblema($_POST['id'],$_POST['type']);
+$recurs->papeleraEmblema();
+header('location: ../admin/emblemasAdmin.php');
 ?>
