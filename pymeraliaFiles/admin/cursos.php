@@ -96,6 +96,15 @@
 
       <?php
       include_once '../clases/Curs_class.php';
+
+      
+      echo'<div class="row justify-content-evenly" id="contenedor-cursos">';
+
+          echo 
+              '<div class="col-12 card d-flex justify-content-center align-items-center" style="width: fit-content; height: 3rem">',
+              '<button type="button" onclick="addCurso()"> <i class="fas fa-link"></i>Añadir Curso</button>',
+              '</div>',
+              '</div>';
       $cursos = Curs::get_all_non_hidden_courses();
       
       if ($cursos) {
@@ -117,6 +126,36 @@
       } 
       ?>
     </main><!--Contenido-->
+
+    <div class="modal fade" id="addCurso" tabindex="-1" aria-labelledby="addCursoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <form action="../PHP/inserirCourse.php" method="post">
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="addCursoLabel"></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" >
+                        <div class="md-3">
+                            <label for="titulo" class="col-form-label" >Título</label>
+                            <input type="text" class="form-control" name="name_course" id="name_course">
+                            <label for="descripcionURL" class="col-form-label">Descripción o URL</label>
+
+                            <input type="text" class="form-control" name="description_course" id="description_course">
+                            <input type="hidden" name="type" id="edit-recurs-type">
+
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary" id="btn-add-user">Guardar</button>
+                </div>
+            </div>
+            </form>
+
+        </div>
+    </div>
 
     <footer class="bg-black text-center text-lg-center mt-auto">
       <div class="text-center p-3">
@@ -168,7 +207,10 @@
               </div>
           </div>
       </div>
+      
+    
   </footer><!--footer-->
+  <script src="../scripts/cursos.js"></script>
 </body>
 
 </html>

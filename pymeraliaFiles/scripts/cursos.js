@@ -1,16 +1,8 @@
-/**
- * Archivo que ejecuta la funcionalidad de activar y desactivar los cursos para el usuario
- */
+let id = id => document.getElementById(id)
 
+let modalCourse = new bootstrap.Modal(id('addCurso'))
 
-/** Función que activa el curso */
-function activarCurso(){
-    let nombreCurso = document.getElementById('formulari').value;
-    document.getElementById(nombreCurso).classList.remove("curso-no-comprado")
-}
-
-/** Función que desactiva el curso */
-function desactivarCurso(){
-    let nombreCurso = document.getElementById('formulari').value;
-    document.getElementById(nombreCurso).classList.add("curso-no-comprado")
+function addCurso() {
+    
+    modalCourse.show()
 }

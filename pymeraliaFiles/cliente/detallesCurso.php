@@ -1,3 +1,14 @@
+<?php
+include("../clases/Curs_class.php");
+
+$courseId;
+
+if (isset($_GET['courseid'])) {
+    $courseId = $_GET['courseid'];
+} else {
+    header('location: ./cursos.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -86,59 +97,40 @@
 
     <main class="container">
 
-        <h1 id="course-title">La ciberseguridad es importante</h1>
+        <?php
+            $curs = new Curs($courseId);
+            $resultat = $curs->showAllRecursosURL();
+            $title = $curs->get_title();
+            $courseId = $_GET['courseid'];
 
-        <div class="course-element text">
-            <h4>La ciberseguridad</h4>
-            <p>La seguridad informática, también conocida como ciberseguridad, es el
-                área relacionada con la informática y la telemática que se enfoca en la protección de la
-                infraestructura computacional y todo lo vinculado con la misma, y especialmente la
-                información contenida en una computadora o circulante a través de las redes de
-                computadoras.2 Para ello existen una serie de estándares, protocolos, métodos, reglas,
-                herramientas, y leyes concebidas para minimizar los posibles riesgos a la infraestructura
-                y/o a la propia información. La ciberseguridad comprende software (bases de datos,
-                metadatos, archivos), hardware, redes de computadoras, y todo lo que la organización
-                entienda y valore como un riesgo si la información confidencial involucrada pudiera
-                llegar a manos de otras personas, por ejemplo, convirtiéndose así en información privilegiada.</p>
-        </div>
-
-        <div class="course-element text">
-            <h4>La importancia de la Ciberseguridad</h4>
-            <p>El crecimiento global de las redes y la información, impulsado por la innovación
-                tecnológica, ha permitido a la sociedad crear prosperidad y mejorar la calidad de vida.
-                Sin embargo, este rápido cambio ha generado también un desafío de largo plazo: gestionar
-                los riesgos de seguridad a medida que el mundo depende cada vez más de la cibernética y las amenazas
-                aumentan.</p>
-            <p>Los líderes empresariales internacionales calificaron las amenazas cibernéticas como uno de los principales
-                riesgos
-                de negocios de acuerdo con los resultados obtenidos en la 21a Encuesta Global de CEO de PwC.</p>
-        </div>
-
-        <div class="course-element video d-flex justify-content-center flex-column">
-            <h4>Tutorial sobre ciberseguridad</h4>
-            
-            <video width="100%" height="400">
-                <source src="../Video/video.mp4">
-            </video>
-    
-            <div class="d-flex justify-content-center mt-3">
-                <button class="orange-button" onclick="playVid()">Play</button>
-                <button class="orange-button" onclick="pauseVid()">Pause</button>
+            echo "
+            <div class='course-element text' id='course-element'>     
+                <h1 id='course-title'>$title</h1>
             </div>
-        </div>
+            ";
 
-        <div class="course-element file">
-            <h4>Actividad</h4>
-            <p>Aquí tienes una actividad a realizar para ver si estás listo.</p>
-            <!-- Boton para Descargar actividad-->
-            <a class="orange-button" href="../actividades/file.doc" download="GFG">Descargar documento</a>
-        </div>
+            foreach ($resultat as $row){
+                if($row['hidden'] != null){
 
-        <div class="course-element activity">
-            <h4>Subir tasca</h4>
-            <p>Aquí puedes enviar la tasca que habéis realizado.</p>
-            <a class="orange-button"  href="recurs.php">Realizar actividad</a>
-        </div>
+                }else{
+                echo "<div class='course-element text' id='course-element-$row[type]-$row[id]'>";
+
+                if ($row['type']=='url') {
+                    echo" <a id='resource-secondary-$row[type]-$row[id]' href=$row[location_or_description]>$row[location_or_description]</a>";
+                } elseif ($row['type']=='file') {
+                    echo" <a id='resource-secondary-$row[type]-$row[id]' class='orange-button' href='$row[location_or_description]' download >$row[name]</a>";
+                }
+                else {
+                    echo "<p id='resource-secondary-$row[type]-$row[id]'>$row[location_or_description]</p>";
+                }
+                
+                echo "</div>"; 
+            }
+
+            };
+            ?>
+
+        
 
     </main>
 

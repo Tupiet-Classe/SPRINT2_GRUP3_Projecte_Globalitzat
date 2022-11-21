@@ -3,6 +3,7 @@ let id = id => document.getElementById(id)
 let btn = id('btn-add-user')
 let form = id('addUserForm')
 let modalDocument = new bootstrap.Modal(id('addDocument'))
+
 let modal = new bootstrap.Modal(id('addUser'))
 let editModal = new bootstrap.Modal(id('edit-user-modal'))
 

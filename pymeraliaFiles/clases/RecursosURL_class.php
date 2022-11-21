@@ -5,6 +5,7 @@ class Recursos{
     private $titulo;
     private $descripcion;
     private $type;
+    private $idCurso;
 
     /** Constructor de la clase Recursos */    
     /**
@@ -38,16 +39,12 @@ class Recursos{
         $this->titulo = $titulo;
         $this->descripcion = $descripcion;
         $this->type = $type;
-
-
-
-
     }
-    public function __construct4($id, $titulo,$descripcion, $type){
-        $this->idRecurso = $id;
+    public function __construct4($titulo,$descripcion, $type, $idCurso){
         $this->titulo = $titulo;
         $this->descripcion = $descripcion;
         $this->type = $type;
+        $this->idCurso = $idCurso;
     }
 
     /** getter Id Recurso */    
@@ -102,15 +99,15 @@ class Recursos{
         
 
         if($this->type == 'url'){
-            $sql="INSERT INTO resources_url(name_resource_url, location, id_course) VALUES('$this->titulo','$this->descripcion', 1)";
+            $sql="INSERT INTO resources_url(name_resource_url, location, id_course) VALUES('$this->titulo','$this->descripcion', $this->idCurso)";
         
             return db_query($sql);
         }elseif($this->type == 'file'){
-            $sql="INSERT INTO resources_files(name_resource_files, location) VALUES('$this->titulo','$this->descripcion')";
+            $sql="INSERT INTO resources_files(name_resource_files, location, id_course) VALUES('$this->titulo','$this->descripcion', $this->idCurso)";
         
             return db_query($sql);
         }elseif($this->type == 'text'){
-            $sql="INSERT INTO resources_text(name_resource_text, description_resource_text, id_course) VALUES('$this->titulo','$this->descripcion',1)";
+            $sql="INSERT INTO resources_text(name_resource_text, description_resource_text, id_course) VALUES('$this->titulo','$this->descripcion', $this->idCurso)";
         
             return db_query($sql);
         }

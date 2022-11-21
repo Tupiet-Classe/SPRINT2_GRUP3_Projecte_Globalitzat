@@ -11,5 +11,5 @@ $resource = new Recursos($id_resource, $type);
 $resource->editRecursos($primary, $secondary);
 
 
-header('location: ../admin/detallesCurso.php');
+header('location: ../admin/detallesCurso.php?courseid=' . $_POST['id-course']);
 ?>
