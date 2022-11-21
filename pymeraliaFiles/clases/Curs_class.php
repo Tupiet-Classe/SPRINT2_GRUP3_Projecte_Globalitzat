@@ -17,9 +17,23 @@ class Curs
      * @param  mixed $imagenCurso
      * @return void
      */
-    public function __construct($idCurso)
+    public function __construct(){
+  
+        $arguments = func_get_args();
+        $numberOfArguments = func_num_args();
+    
+        if (method_exists($this, $function = '__construct'.$numberOfArguments)) {
+            call_user_func_array(array($this, $function), $arguments);
+        }
+      }
+    public function __construct1($idCurso)
     {
         $this->idCurso = $idCurso;
+    }
+    public function __construct2($nombreCurso, $descripcionCurso)
+    {
+        $this->nombreCurso = $nombreCurso;
+        $this->descripcionCurso = $descripcionCurso;
     }
 
     /**
@@ -113,6 +127,9 @@ class Curs
      */
     public function addCurso()
     {
+        $sql="INSERT INTO courses(name_course, description_course) VALUES('$this->nombreCurso','$this->descripcionCurso')";
+        
+            return db_query($sql);
     }
     /**
      * editCurso - Futuro método para editar cursos
