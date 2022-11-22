@@ -5,7 +5,7 @@ $data = json_decode(file_get_contents('php://input'), true);
 
 ['courseID' => $courseID, 'userID' => $userID] = $data;
 
-$curso = new Curs($courseID, 'ciber', 'algo', 'gf');
+$curso = new Curs($courseID);
 $curso->unassignCurso($userID);
 
 ?>
