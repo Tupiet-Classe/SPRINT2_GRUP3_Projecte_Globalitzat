@@ -7,6 +7,7 @@ MDScreen:
         specific_text_color: "black"
         left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
         right_action_items: [["account",("open")]]
+
     
     
     MDNavigationLayout:
@@ -26,7 +27,8 @@ MDScreen:
                     padding:0, 70, 0, 0
                     MDScrollView:
                         MDList:
-                            id: cursos     
+                            id: cursos  
+                             
             MDScreen:
                 name: "Emblemas"
                 MDBoxLayout:
@@ -60,14 +62,15 @@ MDScreen:
             padding: "12dp", 0, 0, "56dp"
 
         MDNavigationDrawerLabel:
-            text: "Pymeralia Equip3"    
+            text: ""    
 
         DrawerClickableItem:
             icon: "home"
             text: "Inicio"
+            source: 'Images/inicio.png'
             on_release: 
                 root.nav_drawer.set_state("close")
-                root.manager.current="Inicio"     
+                root.manager.current="Inicio"    
 
         DrawerClickableItem:
             icon: "school"
