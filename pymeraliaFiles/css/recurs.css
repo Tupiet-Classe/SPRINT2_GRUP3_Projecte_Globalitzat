@@ -21,6 +21,7 @@ body {
     max-width: 500px;
     background: rgb(201, 187, 187); /*Color del recuadre on es selecciona l'arxiu*/
     padding: 20px;
+    border-radius: 10px;
 }
 
 .form__title {
