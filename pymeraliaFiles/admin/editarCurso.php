@@ -66,7 +66,7 @@
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                           <li class="nav-item"><a class="nav-link" href="index.php"><i
                                         class="fa-solid fa-house"></i>Inicio</a></li>
-                          <li class="nav-item"><a class="nav-link" href="cursos.php"><i
+                          <li class="nav-item"><a class="nav-link" href="cursos.php.php"><i
                                         class="fa-solid fa-graduation-cap"></i>Listado Cursos</a></li>
                           <li class="nav-item"><a class="nav-link" href="usuariosCurso.php"><i
                                           class="fa-solid fa-users"></i>Listado Alumnos</a></li>

@@ -78,7 +78,7 @@
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                           <li class="nav-item"><a class="nav-link" href="index.php"><i
                                         class="fa-solid fa-house"></i>Inicio</a></li>
-                          <li class="nav-item"><a class="nav-link" href="cursos.php"><i
+                          <li class="nav-item"><a class="nav-link" href="cursos.php.php"><i
                                         class="fa-solid fa-graduation-cap"></i>Listado Cursos</a></li>
                           <li class="nav-item"><a class="nav-link" href="usuariosCurso.php"><i
                                           class="fa-solid fa-users"></i>Listado Alumnos</a></li>
@@ -113,7 +113,7 @@
 
         <?php
             include_once '../clases/Curs_class.php';
-            $curs = new Curs($_GET['courseid']);
+            $curs = new Curs(4, 'dd', '44', 'd');
 
             $users = $curs->get_users_from_course();
 
@@ -133,11 +133,11 @@
                 foreach ($users as $key => $user) {
                     echo
                         '<tr>',
-                            '<td class="username">' . $user['nick_name'] . '</td>',
-                            '<td class="nombre">' . $user['name_user'] . '</td>',
-                            '<td class="apellido-1">' . $user['last_name'] . '</td>',
+                            '<td class="username">' . $user['NomUsuaris'] . '</td>',
+                            '<td class="nombre">' . $user['Nom'] . '</td>',
+                            '<td class="apellido-1">' . $user['Cognom'] . '</td>',
                             '<td class="apellido-2">',
-                                '<button class="orange-button" onclick="expulsar(' . $user['id_user']  . ')">Expulsar</button>',
+                                '<button class="orange-button" onclick="expulsar(' . $user['Id']  . ')">Expulsar</button>',
                             '</td>',
                         '</tr>';
                 }
@@ -260,7 +260,7 @@
         </div>
     </div>
     
-    <span id="courseId" style="display: none;"><?php echo $_GET['courseid']; ?></span>
+    <span id="courseId" style="display: none;">4</span>
 
 
 
