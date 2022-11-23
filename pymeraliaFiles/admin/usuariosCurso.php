@@ -113,7 +113,7 @@
 
         <?php
             include_once '../clases/Curs_class.php';
-            $curs = new Curs(4, 'dd', '44', 'd');
+            $curs = new Curs($_GET['courseid']);
 
             $users = $curs->get_users_from_course();
 
@@ -133,11 +133,11 @@
                 foreach ($users as $key => $user) {
                     echo
                         '<tr>',
-                            '<td class="username">' . $user['NomUsuaris'] . '</td>',
-                            '<td class="nombre">' . $user['Nom'] . '</td>',
-                            '<td class="apellido-1">' . $user['Cognom'] . '</td>',
+                            '<td class="username">' . $user['nick_name'] . '</td>',
+                            '<td class="nombre">' . $user['name_user'] . '</td>',
+                            '<td class="apellido-1">' . $user['last_name'] . '</td>',
                             '<td class="apellido-2">',
-                                '<button class="orange-button" onclick="expulsar(' . $user['Id']  . ')">Expulsar</button>',
+                                '<button class="orange-button" onclick="expulsar(' . $user['id_user']  . ')">Expulsar</button>',
                             '</td>',
                         '</tr>';
                 }
@@ -260,7 +260,7 @@
         </div>
     </div>
     
-    <span id="courseId" style="display: none;">4</span>
+    <span id="courseId" style="display: none;"><?php echo $_GET['courseid']; ?></span>
 
 
 

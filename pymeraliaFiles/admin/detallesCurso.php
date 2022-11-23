@@ -140,7 +140,7 @@ if (isset($_GET['courseid'])) {
                         </button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="usuariosCurso.php">
+                        <a class="nav-link" href="usuariosCurso.php?courseid=<?php echo $courseId ?>">
                             <i class="fa-solid fa-users"></i>Listado de alumnos
                         </a>
                     </li>
