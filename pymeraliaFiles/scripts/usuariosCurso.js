@@ -47,7 +47,7 @@ async function asignCourse() {
 }
 
 async function expulsar(userID) {
-    let courseID = 4
+    let courseID = +id('courseId').innerText
     let response = await fetch('../PHP/expulsarUsuario.php', {
         method: 'POST',
         body: JSON.stringify({

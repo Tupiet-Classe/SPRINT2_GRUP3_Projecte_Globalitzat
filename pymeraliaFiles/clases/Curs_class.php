@@ -193,18 +193,18 @@ class Curs
         $userId;
 
         if (preg_match("/^\w+@\w+\.\w+$/", $user)) {
-            $emailQuery = $conn->prepare("SELECT Id FROM Usuaris WHERE Email = ?");
+            $emailQuery = $conn->prepare("SELECT id_user FROM users WHERE email = ?");
             $emailQuery->bind_param('s', $user);
 
             $userId = $this->get_id_from_query($emailQuery);
         } else {
-            $usernameQuery = $conn->prepare("SELECT Id FROM Usuaris WHERE NomUsuaris = ?");
+            $usernameQuery = $conn->prepare("SELECT id_user FROM users WHERE nick_name = ?");
             $usernameQuery->bind_param('s', $user);
 
             $userId = $this->get_id_from_query($usernameQuery);
         }
 
-        $insert = $conn->prepare("INSERT INTO Usuari_Curs (IdUsuaris, IdCurs) VALUES (?, ?)");
+        $insert = $conn->prepare("INSERT INTO user_course (id_user, id_course) VALUES (?, ?)");
         $insert->bind_param('ii', $userId, $this->idCurso);
 
         $success;
@@ -228,16 +228,17 @@ class Curs
      */
     public function unassignCurso($user) {
         include_once '../PHP/connexio.php';
+        $id_course = $this->idCurso;
         // Primer, revisarem si aquest usuari està assignat a aquest curs o no
-        $existsQuery = $conn->prepare('SELECT Id FROM Usuari_Curs WHERE IdCurs = ? AND IdUsuaris = ?');
-        $existsQuery->bind_param('ii', $this->idCurso, $user);
+        $existsQuery = $conn->prepare('SELECT id_user_course FROM user_course WHERE id_course = ? AND id_user = ?');
+        $existsQuery->bind_param('ii', $id_course, $user);
         $existsQuery->execute();
 
         $resultExists = $existsQuery->get_result();
         if ($resultExists->num_rows > 0) {
             // L'usuari està assignat
-            $idToDelete = $resultExists->fetch_all(MYSQLI_ASSOC)[0]['Id'];
-            $unassignQuery = $conn->prepare('DELETE FROM Usuari_Curs WHERE Id = ?');
+            $idToDelete = $resultExists->fetch_all(MYSQLI_ASSOC)[0]['id_user_course'];
+            $unassignQuery = $conn->prepare('DELETE FROM user_course WHERE id_user_course = ?');
             $unassignQuery->bind_param('i', $idToDelete);
             $unassignQuery->execute();
         } 
@@ -283,7 +284,7 @@ class Curs
     public function get_users_from_course() {
         include_once '../PHP/connexio.php';
 
-        $selectQuery = $conn->prepare('SELECT Usuaris.Id, Usuaris.NomUsuaris, Usuaris.Nom, Usuaris.Cognom FROM Usuaris INNER JOIN Usuari_Curs ON Usuaris.Id = Usuari_Curs.IdUsuaris WHERE Usuari_Curs.IdCurs = ?');
+        $selectQuery = $conn->prepare('SELECT users.id_user, users.nick_name, users.name_user, users.last_name FROM users INNER JOIN user_course ON users.id_user = user_course.id_user WHERE user_course.id_course = ?');
         $selectQuery->bind_param('i', $this->idCurso);
 
         $selectQuery->execute();
@@ -301,7 +302,7 @@ class Curs
         
         $result = $query->get_result();
         if ($result->num_rows > 0) {
-            return $result->fetch_all(MYSQLI_ASSOC)[0]['Id'];
+            return $result->fetch_all(MYSQLI_ASSOC)[0]['id_user'];
         }
     }
 }
