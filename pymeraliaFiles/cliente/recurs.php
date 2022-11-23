@@ -1,7 +1,3 @@
-<?php
-include_once "../PHP/inserirRecursos.php";
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -92,12 +88,11 @@ include_once "../PHP/inserirRecursos.php";
 <body>
 
 <div class="contenedor" id="contenedor1">
-
     <h2>Entregar actividad</h2>
-    <form method="POST" class="form-register" enctype="multipart/form-data">
+    <form action="insertar.php" class="form-register" method="post" enctype="multipart/form-data">
         <h1 class="form__title">Introduce la actividad</h1>
         <input type="file" name="archivo" class="form__file" required>
-        <button type="submit" name="submitBtn" class="btn btn-success">Enviar</button>
+        <input type="submit" class="form__submit">
     
     </form>      
 
