@@ -12,7 +12,9 @@ from kivy.properties import ObjectProperty
 from kivymd.uix.scrollview import MDScrollView
 from kivy.clock import Clock
 from kivymd.uix.list import ThreeLineIconListItem, IconLeftWidget #import para crear listas (cambia dependiendo de los campos que queremos que tenga la lista), le pasamos diferentes imports de la misma biblioteca
-
+from kivymd.uix.datatables import MDDataTable
+from kivy.uix.anchorlayout import AnchorLayout
+from kivy.metrics import dp
 
 class ContentNavigationDrawer(MDBoxLayout):
     manager = ObjectProperty()
@@ -42,7 +44,7 @@ class MyApp (MDApp):
             list_view.add_widget(items)
 
         scroll.add_widget(list_view)
-        return Builder.load_file("main2.kv")##el estil
+        return Builder.load_file("main2.kv")##el estilestil
     
     def on_start(self): #ccrem la classe on_start
         for i in range(10): #bucle que recorre el rango que le pasemos como parametro
@@ -51,8 +53,9 @@ class MyApp (MDApp):
                     IconLeftWidget( #un metode que ens permeteix agregar icones
                         icon="school"
                     ),
-                    text=f"Curso {i}", 
-                    secondary_text=f"Tema {i}", 
+                    text=f"Curso {i + 1}", 
+                    secondary_text=f"Tema 1", 
+                     tertiary_text=f"Tema 2",
                 )
                 
             )## Llistara lo que posa en Cursos
@@ -63,12 +66,31 @@ class MyApp (MDApp):
                     IconLeftWidget(
                         icon="medal"
                     ),
-                    text=f"#{i}",
-                    secondary_text=f"Curso {i}",
-                    tertiary_text=f"Completa el curso {i}",
+                    text=f"#   Emblemas ganados        Descripción",
+                    secondary_text=f"{i + 1}            Curso{i + 1}             Completa el curso {i + 1}" ,
+                   
                     
                 )
             )##Llistara lo que posa en Emblemas   
             
+        for i in range(10):
+            self.root.ids.calificaciones.add_widget(
+                ThreeLineIconListItem(
+                    IconLeftWidget(
+                        icon="star"
+                    ),
+                    text=f"Cursos",
+                    secondary_text=f"Actividades                  Estado       Nota ",
+                    tertiary_text=f"Nombre actividad   Pendent/No    X ",
+                    
+                   
+                    
+        
+                )
+            )  
+
+
+            
       
+
 MyApp().run()
